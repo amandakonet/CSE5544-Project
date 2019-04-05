@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<head>
+<meta charset="utf-8">
+<script type="text/javascript"></script>
+</head>
+
+<style>
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #707070;
+  margin-left: -100px;
+}
+
+#polygon-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: white;
+}
+
+.button {
+    width: 6em;
+    height: 2em;
+    border: 2px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #454545;
+    border-color: #707070;
+    background: #efefef;
+    border-radius: 5px;
+    position: absolute;
+    line-height: 35px;
+    margin-left: 1000px;
+    margin-top: 600px;
+}
+
+.button-back {
+    width: 6em;
+    height: 2em;
+    border: 2px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #454545;
+    border-color: #707070;
+    background: #efefef;
+    border-radius: 5px;
+    position: absolute;
+    line-height: 35px;
+    margin-left: 40px;
+    margin-top: 600px;
+}
+
+</style>
+
+<body>
+
+  <h2> <center>Phase 1: Click on any stressors you may be feeling: </center> </h2>
+
+  <div class="button" id = "button">Next</div>
+  <div class="button-back" id = "button-back">Back</div>
+
+<!-- load the d3.js and legend libraries -->    	
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
+
+<!-- stress portrait code -->
+<script type="text/javascript" src="stress portrait script.js"></script>
+
+
+
+</body>
+</html>
