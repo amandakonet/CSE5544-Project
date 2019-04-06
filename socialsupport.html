@@ -96,14 +96,46 @@ var svg = d3.select("body").append("svg")
 
 //array of circle coordinates, radius, color and name
 var jsonCircles = [
-   { "x_axis": -5, "y_axis": 30, "radius": 50, "color" : "#f9e7da", "name" : "Appraisal", "rotation" : -55, "trans_x" : 100 , "trans_y" : 50}, //top left circle
-   { "x_axis": -2, "y_axis": 120, "radius": 50, "color" : "#f9e7da", "name" : "Appraisal", "rotation" : 5, "trans_x" : 50 , "trans_y" : 50 }, //bottom left
-{ "x_axis": 162, "y_axis": -30, "radius": 50, "color" : "#eff2e2", "name" : "Informational", "rotation" : 5, "trans_x" : 50 , "trans_y" : 50}, //top right
-   { "x_axis": 223, "y_axis": 135, "radius": 50, "color" : "#ede6de", "name" : "Emotional", "rotation" : 2, "trans_x" : 50 , "trans_y" : 50}, //bottom left
-{ "x_axis": 65, "y_axis": -35, "radius": 50, "color" : "#e3e6e7", "name" : "Instrumental", "rotation" : 10, "trans_x" : 50 , "trans_y" : 50},
-{ "x_axis": 60, "y_axis": 188, "radius": 50, "color" : "#e3e6e7", "name" : "Instrumental", "rotation" : 10, "trans_x" : 50 , "trans_y" : 50},
-{ "x_axis": 227, "y_axis": 40, "radius": 50, "color" : "#ede6de", "name" : "Emotional", "rotation" : 10, "trans_x" : 50 , "trans_y" : 50},
-{ "x_axis": 150, "y_axis": 193, "radius": 50, "color" : "#eff2e2", "name" : "Informational", "rotation" : 10, "trans_x" : 50 , "trans_y" : 50}
+   { "x_axis": -5, 
+	"y_axis": 30, 
+	"radius": 50, 
+	"color" : "#f9e7da", 
+	"name" : "Appraisal"}, //top left circle
+   { "x_axis": -2, 
+	"y_axis": 120, 
+	"radius": 50, 
+	"color" : "#f9e7da", 
+	"name" : "Appraisal"}, //bottom left
+{ "x_axis": 162, 
+	"y_axis": -30, 
+	"radius": 50, 
+	"color" : "#eff2e2", 
+	"name" : "Informational"}, //top right
+   { "x_axis": 223, 
+	"y_axis": 135, 
+	"radius": 50, 
+	"color" : "#ede6de", 
+	"name" : "Emotional"}, //bottom left
+{ "x_axis": 65, 
+	"y_axis": -35, 
+	"radius": 50, 
+	"color" : "#e3e6e7", 
+	"name" : "Instrumental"},
+{ "x_axis": 60, 
+	"y_axis": 188, 
+	"radius": 50, 
+	"color" : "#e3e6e7", 
+	"name" : "Instrumental"},
+{ "x_axis": 227, 
+	"y_axis": 40, 
+	"radius": 50, 
+	"color" : "#ede6de", 
+	"name" : "Emotional"},
+{ "x_axis": 150, 
+	"y_axis": 193, 
+	"radius": 50, 
+	"color" : "#eff2e2", 
+	"name" : "Informational"}
 ];
 
 //creating, appending and coloring the circles
@@ -704,8 +736,42 @@ var jsonCircles = [
 	"stressor" : "Work-Study Balance"},
 ];
 
+/**********************************************
 
+	Creating the curved labels 
 
+**********************************************/
+svg.append("path")
+    .attr("id", "personal") //Unique id of the path
+    .attr("d", "M 0,300 A 200,200 0 0,1 400,300") //SVG path
+    .style("fill", "none")
+    .style("stroke", "none")
+	.attr("transform", "translate(-90, -200)");
+
+svg.append("text")
+   .append("textPath") //append a textPath to the text element
+    .attr("xlink:href", "#personal") //place the ID of the path here
+    .style("text-anchor","left") //place the text halfway on the arc
+    .attr("startOffset", "50%")
+    .text("Personal Connections")
+	.attr("font-size", "12px")
+	.attr("font-family", "Montserrat");
+
+svg.append("path")
+    .attr("id", "campus") //Unique id of the path
+    .attr("d", "M 0,300 A 200,200 0 0,0 400,300") //SVG path
+    .style("fill", "none")
+    .style("stroke", "none")
+	.attr("transform", "translate(-90, -225)");
+
+svg.append("text")
+   .append("textPath") //append a textPath to the text element
+    .attr("xlink:href", "#campus") //place the ID of the path here
+    .style("text-anchor","right") //place the text halfway on the arc
+    .attr("startOffset", "25%")
+    .text("Campus Resources")
+	.attr("font-size", "12px")
+	.attr("font-family", "Montserrat");;
 
 /**********************************************
 
