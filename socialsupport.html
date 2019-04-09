@@ -8,29 +8,45 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
 }
+
 h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   //color: #707070;
 }
+
 #circle-text {
   font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  color: white;
+  font-size: 12px;
+  color: #707070;
+}
+
+#legend-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  color: #707070;  
+}
+
+#resource-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  color: #707070;  
 }
 .link {
     fill:none;
     stroke: #DDD;
     stroke-width:1px;
-}      
+}  
+
 axis text {
-	font: 10px Montserrat;
-	}
+  font: 10px Montserrat;
+}
+
 .axis line, .axis path {
-	fill: "black";
-	stroke: #000;
-	shape-rendering: crispEdges;
-			}
+  fill: "black";
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
 
 .button-back {
     width: 6em;
@@ -57,7 +73,7 @@ axis text {
 
 <div class="button-back" id = "button-back">Back</div>
 
-<!-- load the d3.js library -->    	
+<!-- load the d3.js library -->     
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <!-- social support network code -->
@@ -86,139 +102,131 @@ var svg = d3.select("body").append("svg")
 //array of circle coordinates, radius, color and name
 var jsonCircles = [
    { "x_axis": -5, 
-	"y_axis": 80, 
-	"radius": 50, 
-	"color" : "#f9e7da", 
-	"name" : "Appraisal"}, //top left circle
+  "y_axis": 80, 
+  "radius": 50, 
+  "color" : "#f9e7da", 
+  "name" : "Appraisal"}, //top left circle
    { "x_axis": -2, 
-	"y_axis": 170, 
-	"radius": 50, 
-	"color" : "#f9e7da", 
-	"name" : "Appraisal"}, //bottom left
+  "y_axis": 170, 
+  "radius": 50, 
+  "color" : "#f9e7da", 
+  "name" : "Appraisal"}, //bottom left
 { "x_axis": 162, 
-	"y_axis": 20, 
-	"radius": 50, 
-	"color" : "#eff2e2", 
-	"name" : "Informational"}, //top right
+  "y_axis": 20, 
+  "radius": 50, 
+  "color" : "#eff2e2", 
+  "name" : "Informational"}, //top right
    { "x_axis": 223, 
-	"y_axis": 185, 
-	"radius": 50, 
-	"color" : "#ede6de", 
-	"name" : "Emotional"}, //bottom left
+  "y_axis": 185, 
+  "radius": 50, 
+  "color" : "#ede6de", 
+  "name" : "Emotional"}, //bottom left
 { "x_axis": 65, 
-	"y_axis": 15, 
-	"radius": 50, 
-	"color" : "#e3e6e7", 
-	"name" : "Instrumental"},
+  "y_axis": 15, 
+  "radius": 50, 
+  "color" : "#e3e6e7", 
+  "name" : "Instrumental"},
 { "x_axis": 60, 
-	"y_axis": 238, 
-	"radius": 50, 
-	"color" : "#e3e6e7", 
-	"name" : "Instrumental"},
+  "y_axis": 238, 
+  "radius": 50, 
+  "color" : "#e3e6e7", 
+  "name" : "Instrumental"},
 { "x_axis": 227, 
-	"y_axis": 90, 
-	"radius": 50, 
-	"color" : "#ede6de", 
-	"name" : "Emotional"},
+  "y_axis": 90, 
+  "radius": 50, 
+  "color" : "#ede6de", 
+  "name" : "Emotional"},
 { "x_axis": 150, 
-	"y_axis": 243, 
-	"radius": 50, 
-	"color" : "#eff2e2", 
-	"name" : "Informational"}
+  "y_axis": 243, 
+  "radius": 50, 
+  "color" : "#eff2e2", 
+  "name" : "Informational"}
 ];
 //creating, appending and coloring the circles
 var circles = svg.selectAll("circle", "id")
                           .data(jsonCircles)
                           .enter()
                           .append("circle")
-			.attr("fill", "url(#grad)");
+      .attr("fill", "url(#grad)");
 //creating the circles-position on the screen and size
 var circleAttributes = circles
                        .attr("cx", function (d) { return d.x_axis; })
                       .attr("cy", function (d) { return d.y_axis; })
                        .attr("r", function (d) { return d.radius; })
-			.style("fill", function (d) {return d.color;});
+      .style("fill", function (d) {return d.color;});
 //Draws the overlapping circle
 var overlapcircle = svg.append("circle")
                           .attr("cx", 112)
                           .attr("cy", 130)
                         .attr("r", 125)
-			.attr("fill", "white");
+      .attr("fill", "white");
 /*******************************
     CREATE THE LABLES FOR CIRCLES - clockwise starting from bottom left circle labeled "Appraisal"
 ********************************/
 //label for circle 1
 svg.append("text")
-	.attr("x", 10)
-	.attr("y", 95)
-	.text("Appraisal")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black")
-	.attr("transform", "translate (80, 108)" + "rotate(70)");
+  .attr("x", 10)
+  .attr("y", 95)
+  .text("Appraisal")
+  .attr("id", "cirlce-text")
+  .attr("fill", "black")
+  .attr("transform", "translate (80, 108)" + "rotate(70)");
 //label for circle 2
 svg.append("text")
-	.attr("x", 0)
-	.attr("y", 50)
-	.text("Appraisal")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black")
-	.attr("transform", "translate (-45, 85)" + "rotate(-65)");
+  .attr("x", 0)
+  .attr("y", 50)
+  .text("Appraisal")
+  .attr("id", "circle-text")
+  .attr("fill", "black")
+  .attr("transform", "translate (-45, 85)" + "rotate(-65)");
 //label for circle 3
 svg.append("text")
-	.attr("x", 40)
-	.attr("y", 0)
-	.text("Instrumental")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black")
-	.attr("transform", "translate (5, 57)" + "rotate(-23)");
+  .attr("x", 40)
+  .attr("y", 0)
+  .text("Instrumental")
+  .attr("id", "circle-text")
+  .attr("fill", "black")
+  .attr("transform", "translate (5, 57)" + "rotate(-23)");
 //label for circle 4
 svg.append("text")
-	.attr("x", 100)
-	.attr("y", -75)
-	.text("Informational")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black")
-	.attr("transform", "translate (5, 48)" + "rotate(23)");
+  .attr("x", 100)
+  .attr("y", -75)
+  .text("Informational")
+  .attr("id", "circle-text")
+  .attr("fill", "black")
+  .attr("transform", "translate (5, 48)" + "rotate(23)");
 //label for circle 5
 svg.append("text")
-	.attr("x", 250)
-	.attr("y", 0)
-	.text("Emotional")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black")
-	.attr("transform", "translate (110, -165)" + "rotate(68)");
+  .attr("x", 250)
+  .attr("y", 0)
+  .text("Emotional")
+  .attr("id", "circle-text")
+  .attr("fill", "black")
+  .attr("transform", "translate (110, -165)" + "rotate(68)");
 //label for circle 6
 svg.append("text")
-	.attr("x", 230)
-	.attr("y", 120)
-	.text("Emotional")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black")
-	.attr("transform", "translate (0, 360)" + "rotate(-65)");
+  .attr("x", 230)
+  .attr("y", 120)
+  .text("Emotional")
+  .attr("id", "circle-text")
+  .attr("fill", "black")
+  .attr("transform", "translate (0, 360)" + "rotate(-65)");
 //label for circle 7
 svg.append("text")
-	.attr("x", 60)
-	.attr("y", 182)
-	.text("Informational")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black")
-	.attr("transform", "translate (0, 100)" + "rotate(-20)");
+  .attr("x", 60)
+  .attr("y", 182)
+  .text("Informational")
+  .attr("id", "circle-text")
+  .attr("fill", "black")
+  .attr("transform", "translate (0, 100)" + "rotate(-20)");
 //label for circle 8
 svg.append("text")
-	.attr("x", 110)
-	.attr("y", 134)
-	.text("Instrumental")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black")
-	.attr("transform", "translate (0, 50)" + "rotate(28)");
+  .attr("x", 110)
+  .attr("y", 134)
+  .text("Instrumental")
+  .attr("id", "circle-text")
+  .attr("fill", "black")
+  .attr("transform", "translate (0, 50)" + "rotate(28)");
 
 /*******************************
     GET SELECTED STRESSORS
@@ -247,7 +255,7 @@ buttonBack.addEventListener('click', function() {
 
 /*******************************
     CREATE THE LEGENDS
-	legend numbers go from top left to bottom right
+  legend numbers go from top left to bottom right
 ********************************/
 //adding legends
 //width and height of each rectangle
@@ -260,12 +268,11 @@ legend1.append("stop").attr("offset", "100%").attr("stop-color", "#ed553b").attr
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(500,-150)" + "rotate(90)");
 //label for legend 1
 svg.append("text")
-	.attr("x", 425)
-	.attr("y", -118)
-	.text("commitments")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 425)
+  .attr("y", -118)
+  .text("commitments")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 //legend 2
 var legend2 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient2").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend2.append("stop").attr("offset", "0%").attr("stop-color", "#fae2b3").attr("stop-opacity", 1);
@@ -273,31 +280,29 @@ legend2.append("stop").attr("offset", "100%").attr("stop-color", "#f0a515").attr
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient2)").attr("transform", "translate(600,-150)" + "rotate(90)");
 //label for legend 2
 svg.append("text")
-	.attr("x", 525)
-	.attr("y", -118)
-	.text("connection")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 525)
+  .attr("y", -118)
+  .text("connection")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 //legend 3
 var legend3 = svg.append("defs").append("svg:linearGradient")
-	.attr("id", "gradient3")
-	.attr("x1", "100%")
-	.attr("y1", "0%")
-	.attr("x2", "100%")
-	.attr("y2", "100%")
-	.attr("spreadMethod", "pad");
+  .attr("id", "gradient3")
+  .attr("x1", "100%")
+  .attr("y1", "0%")
+  .attr("x2", "100%")
+  .attr("y2", "100%")
+  .attr("spreadMethod", "pad");
 legend3.append("stop").attr("offset", "0%").attr("stop-color", "#bbe2e5").attr("stop-opacity", 1);
 legend3.append("stop").attr("offset", "100%").attr("stop-color", "#0894a1").attr("stop-opacity", 1);
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient3)").attr("transform", "translate(700,-150)" + "rotate(90)");
 //label for legend 3
 svg.append("text")
-	.attr("x", 625)
-	.attr("y", -118)
-	.text("care")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 625)
+  .attr("y", -118)
+  .text("care")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 //legend 4
 var legend4 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient4").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend4.append("stop").attr("offset", "0%").attr("stop-color", "#cde8d6").attr("stop-opacity", 1);
@@ -305,91 +310,82 @@ legend4.append("stop").attr("offset", "100%").attr("stop-color", "#47ab6c").attr
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient4)").attr("transform", "translate(800,-150)" + "rotate(90)");
 //label for legend 4
 svg.append("text")
-	.attr("x", 725)
-	.attr("y", -118)
-	.text("career")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 725)
+  .attr("y", -118)
+  .text("career")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 //legend 5
 var legend5 = svg.append("defs");
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#ede6de").attr("transform", "translate(500,-110)" + "rotate(90)");
 //label for legend 5
 svg.append("text")
-	.attr("x", 425)
-	.attr("y", -75)
-	.text("emotional")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 425)
+  .attr("y", -75)
+  .text("emotional")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 //label for legend 5 line 2
 svg.append("text")
-	.attr("x", 425)
-	.attr("y", -62)
-	.text("support")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 425)
+  .attr("y", -62)
+  .text("support")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 //legend 6
 var legend5 = svg.append("defs");
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#eff2e2").attr("transform", "translate(600,-110)" + "rotate(90)");
 //label for legend 6
 svg.append("text")
-	.attr("x", 525)
-	.attr("y", -75)
-	.text("informational")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 525)
+  .attr("y", -75)
+  .text("informational")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 //label for legend 6 line 2
 svg.append("text")
-	.attr("x", 525)
-	.attr("y", -62)
-	.text("support")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 525)
+  .attr("y", -62)
+  .text("support")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 //legend 7
 var legend5 = svg.append("defs");
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#e3e6e7").attr("transform", "translate(700,-110)" + "rotate(90)");
 //label for legend 7
 svg.append("text")
-	.attr("x", 625)
-	.attr("y", -75)
-	.text("instrumental")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 625)
+  .attr("y", -75)
+  .text("instrumental")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 //label for legend 7 line 2
 svg.append("text")
-	.attr("x", 625)
-	.attr("y", -62)
-	.text("support")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 625)
+  .attr("y", -62)
+  .text("support")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 //legend 8
 var legend5 = svg.append("defs");
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#f9e7da").attr("transform", "translate(800,-110)" + "rotate(90)");
 //label for legend 8
 svg.append("text")
-	.attr("x", 725)
-	.attr("y", -75)
-	.text("appraisal")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 725)
+  .attr("y", -75)
+  .text("appraisal")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 //label for legend 8 line 2
 svg.append("text")
-	.attr("x", 725)
-	.attr("y", -62)
-	.text("support")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat")
-	.attr("fill", "black");
+  .attr("x", 725)
+  .attr("y", -62)
+  .text("support")
+  .attr("id", "legend-text")
+  .attr("fill", "black");
 
 /**********************************************
-	Creating the curved labels 
+  Creating the curved labels 
 **********************************************/
 //label for personal connections
 svg.append("path")
@@ -397,7 +393,7 @@ svg.append("path")
     .attr("d", "M 0,300 A 200,200 0 0,1 400,300") //SVG path
     .style("fill", "none")
     .style("stroke", "none")
-	.attr("transform", "translate(-90, -150)");
+  .attr("transform", "translate(-90, -150)");
 
 svg.append("text")
    .append("textPath") //append a textPath to the text element
@@ -405,8 +401,7 @@ svg.append("text")
     .style("text-anchor","left") //place the text halfway on the arc
     .attr("startOffset", "50%")
     .text("Personal Connections")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat");
+  .attr("id", "cirlce-text");
 
 //label for on-campus resources
 svg.append("path")
@@ -414,7 +409,7 @@ svg.append("path")
     .attr("d", "M 0,300 A 200,200 0 0,0 400,300") //SVG path
     .style("fill", "none")
     .style("stroke", "none")
-	.attr("transform", "translate(-90, -175)");
+  .attr("transform", "translate(-90, -175)");
 
 svg.append("text")
    .append("textPath") //append a textPath to the text element
@@ -422,8 +417,7 @@ svg.append("text")
     .style("text-anchor","right") //place the text halfway on the arc
     .attr("startOffset", "25%")
     .text("Campus Resources")
-	.attr("font-size", "12px")
-	.attr("font-family", "Montserrat");
+  .attr("id", "cirlce-text");
 
 /**********************************************
 EXPLORING LINKING NODES TO WEBPAGES
@@ -448,272 +442,272 @@ Array for setting up  the link objects.
 /*
 var arrayOfResources = [
    {
-	"name" : "COMM 2110 - Principles of Effective Public Speaking",
-	"color" : "#47ab6c", 
-	"support": "Instrumental", 
-	"category" : "career", 
-	"stressor" : "Public Speaking and Presentation",
-	"points" : [},
+  "name" : "COMM 2110 - Principles of Effective Public Speaking",
+  "color" : "#47ab6c", 
+  "support": "Instrumental", 
+  "category" : "career", 
+  "stressor" : "Public Speaking and Presentation",
+  "points" : [},
 {"color" : "#47ab6c", 
-	"source" : "Informational",
-	"target" : "Buckeye Careers",
-	"category" : "career", 
-	"stressor" : "Career Anxiety"},
+  "source" : "Informational",
+  "target" : "Buckeye Careers",
+  "category" : "career", 
+  "stressor" : "Career Anxiety"},
 {"color" : "#47ab6c", 
-	"source" : "Emotional",
-	"target" : "Counseling and Consultation Services",
-	"category" : "career", 
-	"stressor" : "Career Anxiety"},
+  "source" : "Emotional",
+  "target" : "Counseling and Consultation Services",
+  "category" : "career", 
+  "stressor" : "Career Anxiety"},
 {"color" : "#47ab6c", 
-	"source" : "Informational",
-	"target" : "Younkin Career Counseling and Support Services",
-	"category" : "career", 
-	"stressor" : "Career Anxiety"},
+  "source" : "Informational",
+  "target" : "Younkin Career Counseling and Support Services",
+  "category" : "career", 
+  "stressor" : "Career Anxiety"},
 {"color" : "#47ab6c", 
-	"source" : "Instrumental",
-	"target" : "Interview With a Buckeye", 
-	"category" : "career", 
-	"stressor" : "Career Anxiety"},
+  "source" : "Instrumental",
+  "target" : "Interview With a Buckeye", 
+  "category" : "career", 
+  "stressor" : "Career Anxiety"},
 {"color" : "#47ab6c", 
-	"source" : "Instrumental",
-	"target" : "Handshake", 
-	"category" : "career", 
-	"stressor" : "Career Anxiety"},
+  "source" : "Instrumental",
+  "target" : "Handshake", 
+  "category" : "career", 
+  "stressor" : "Career Anxiety"},
 {"color" : "#47ab6c", 
-	"source" : "Instrumental",
-	"target" : "Your Academic College's Career Services", 
-	"category" : "career", 
-	"stressor" : "Career Anxiety"},
+  "source" : "Instrumental",
+  "target" : "Your Academic College's Career Services", 
+  "category" : "career", 
+  "stressor" : "Career Anxiety"},
 {"color" : "#47ab6c", 
-	"source" : "Informational",
-	"target" : "Scarlet and Gray Financial", 
-	"category" : "career", 
-	"stressor" : "Personal Finances"},
+  "source" : "Informational",
+  "target" : "Scarlet and Gray Financial", 
+  "category" : "career", 
+  "stressor" : "Personal Finances"},
 {"color" : "#47ab6c", 
-	"source" : "Instrumental",
-	"target" : "BuckeyeLink", 
-	"category" : "career", 
-	"stressor" : "Personal Finances"},
+  "source" : "Instrumental",
+  "target" : "BuckeyeLink", 
+  "category" : "career", 
+  "stressor" : "Personal Finances"},
 {"color" : "#47ab6c", 
-	"source" : "Instrumental",
-	"target" : "DTix at the Ohio Union", 
-	"category" : "career", 
-	"stressor" : "Personal Finances"},
+  "source" : "Instrumental",
+  "target" : "DTix at the Ohio Union", 
+  "category" : "career", 
+  "stressor" : "Personal Finances"},
 {"color" : "#47ab6c", 
-	"source" : "Instrumental",
-	"target" : "Office of International Affairs", 
-	"category" : "career", 
-	"stressor" : "VISA"},
+  "source" : "Instrumental",
+  "target" : "Office of International Affairs", 
+  "category" : "career", 
+  "stressor" : "VISA"},
 {"color" : "#f0a515", 
-	"source" : "Emotional",
-	"target" : "International Friendships", 
-	"category" : "connection", 
-	"stressor" : "Loneliness/Homesickness"},
+  "source" : "Emotional",
+  "target" : "International Friendships", 
+  "category" : "connection", 
+  "stressor" : "Loneliness/Homesickness"},
 {"color" : "#f0a515", 
-	"source" : "Emotional",
-	"target" : "Counseling and Consultation Services", 
-	"category" : "connection", 
-	"stressor" : "Loneliness/Homesickness"},
+  "source" : "Emotional",
+  "target" : "Counseling and Consultation Services", 
+  "category" : "connection", 
+  "stressor" : "Loneliness/Homesickness"},
 {"color" : "#f0a515", 
-	"source" : "Emotional",
-	"target" : "Counseling and Consultation Services",
-	"category" : "connection", 
-	"stressor" : "Social Life Improvement"},
+  "source" : "Emotional",
+  "target" : "Counseling and Consultation Services",
+  "category" : "connection", 
+  "stressor" : "Social Life Improvement"},
 {"color" : "#f0a515", 
-	"source" : "Appraisal",
-	"target" : "Wellness Coaching", 
-	"category" : "connection", 
-	"stressor" : "Social Life Improvement"},
+  "source" : "Appraisal",
+  "target" : "Wellness Coaching", 
+  "category" : "connection", 
+  "stressor" : "Social Life Improvement"},
 {"color" : "#f0a515", 
-	"source" : "Appraisal",
-	"target" : "Student Involvement Fair", 
-	"category" : "connection", 
-	"stressor" : "Social Life Improvement"},
+  "source" : "Appraisal",
+  "target" : "Student Involvement Fair", 
+  "category" : "connection", 
+  "stressor" : "Social Life Improvement"},
 {"color" : "#f0a515", 
-	"source" : "Instrumental",
-	"target" : "DTix at the Ohio Union",
-	"category" : "connection", 
-	"stressor" : "Social Life Improvement"},
+  "source" : "Instrumental",
+  "target" : "DTix at the Ohio Union",
+  "category" : "connection", 
+  "stressor" : "Social Life Improvement"},
 {"color" : "#f0a515", 
-	"source" : "Emotional",
-	"target" : "Counseling and Consultation Services", 
-	"category" : "connection", 
-	"stressor" : "Relationship Difficulties"},
+  "source" : "Emotional",
+  "target" : "Counseling and Consultation Services", 
+  "category" : "connection", 
+  "stressor" : "Relationship Difficulties"},
 {"color" : "#f0a515", 
-	"source" : "Appraisal",
-	"target" : "Wellness Coaching", 
-	"category" : "connection", 
-	"stressor" : "Relationship Difficulties"},
+  "source" : "Appraisal",
+  "target" : "Wellness Coaching", 
+  "category" : "connection", 
+  "stressor" : "Relationship Difficulties"},
 {"color" : "#f0a515", 
-	"source" : "Appraisal",
-	"target" : "Intramural Sports", 
-	"category" : "connection", 
-	"stressor" : "Extracurricular Activities"},
+  "source" : "Appraisal",
+  "target" : "Intramural Sports", 
+  "category" : "connection", 
+  "stressor" : "Extracurricular Activities"},
 {"color" : "#f0a515", 
-	"source" : "Appraisal",
-	"target" : "Student Involvement Fair", 
-	"category" : "connection", 
-	"stressor" : "Extracurricular Activities"},
+  "source" : "Appraisal",
+  "target" : "Student Involvement Fair", 
+  "category" : "connection", 
+  "stressor" : "Extracurricular Activities"},
 {"color" : "#f0a515", 
-	"source" : "Instrumental", 
-	"target" : "DTix at the Ohio Union", 
-	"category" : "connection", 
-	"stressor" : "Extracurricular Activities"},
+  "source" : "Instrumental", 
+  "target" : "DTix at the Ohio Union", 
+  "category" : "connection", 
+  "stressor" : "Extracurricular Activities"},
 {"color" : "#0894a1", 
-	"source" : "Instrumental",
-	"target" : "OSU Dining Facilities",
-	"category" : "care", 
-	"stressor" : "Healthy Eating"},
+  "source" : "Instrumental",
+  "target" : "OSU Dining Facilities",
+  "category" : "care", 
+  "stressor" : "Healthy Eating"},
 {"color" : "#0894a1", 
-	"source" : "Appraisal",
-	"target" : "Nutrition Coaching at the RPAC", 
-	"category" : "care", 
-	"stressor" : "Healthy Eating"},
+  "source" : "Appraisal",
+  "target" : "Nutrition Coaching at the RPAC", 
+  "category" : "care", 
+  "stressor" : "Healthy Eating"},
 {"color" : "#0894a1", 
-	"source" : "Instrumental",
-	"target" : "Wilce Student Health Center", 
-	"category" : "care", 
-	"stressor" : "Difficulty Sleeping"},
+  "source" : "Instrumental",
+  "target" : "Wilce Student Health Center", 
+  "category" : "care", 
+  "stressor" : "Difficulty Sleeping"},
 {"color" : "#0894a1", 
-	"source" : "Emotional",
-	"target" : "Counseling and Consultation Services", 
-	"category" : "care", 
-	"stressor" : "Healthy Eating"},
+  "source" : "Emotional",
+  "target" : "Counseling and Consultation Services", 
+  "category" : "care", 
+  "stressor" : "Healthy Eating"},
 {"color" : "#0894a1", 
-	"source" : "Instrumental",
-	"target" : "Wilce Student Health Center",
-	"category" : "care", 
-	"stressor" : "Illness"},
+  "source" : "Instrumental",
+  "target" : "Wilce Student Health Center",
+  "category" : "care", 
+  "stressor" : "Illness"},
 {"color" : "#0894a1", 
-	"source" : "Instrumental",
-	"target" : "CVS on Lane and High", 
-	"category" : "care", 
-	"stressor" : "Illness"},
+  "source" : "Instrumental",
+  "target" : "CVS on Lane and High", 
+  "category" : "care", 
+  "stressor" : "Illness"},
 {"color" : "#0894a1", 
-	"source" : "Appraisal",
-	"target" : "RPAC", 
-	"category" : "care", 
-	"stressor" : "Physical Activity and Fitness"},
+  "source" : "Appraisal",
+  "target" : "RPAC", 
+  "category" : "care", 
+  "stressor" : "Physical Activity and Fitness"},
 {"color" : "#0894a1", 
-	"source" : "Appraisal",
-	"target" : "JO North/JO South", 
-	"category" : "care", 
-	"stressor" : "Physical Activity and Fitness"},
+  "source" : "Appraisal",
+  "target" : "JO North/JO South", 
+  "category" : "care", 
+  "stressor" : "Physical Activity and Fitness"},
 {"color" : "#0894a1", 
-	"source" : "Appraisal",
-	"target" : "North Recreation Center",  
-	"category" : "care", 
-	"stressor" : "Physical Activity and Fitness"},
+  "source" : "Appraisal",
+  "target" : "North Recreation Center",  
+  "category" : "care", 
+  "stressor" : "Physical Activity and Fitness"},
 {"color" : "#0894a1", 
-	"source" : "Appraisal",
-	"target" : "Adventure Recreation Center", 
-	"category" : "care", 
-	"stressor" : "Physical Activity and Fitness"},
+  "source" : "Appraisal",
+  "target" : "Adventure Recreation Center", 
+  "category" : "care", 
+  "stressor" : "Physical Activity and Fitness"},
 {"color" : "#ed553b", 
-	"source" : "Instrumental",
-	"target" : "Dennis Learning Center", 
-	"category" : "commitments", 
-	"stressor" : "Deadlines"},
+  "source" : "Instrumental",
+  "target" : "Dennis Learning Center", 
+  "category" : "commitments", 
+  "stressor" : "Deadlines"},
 {"color" : "#ed553b", 
-	"source" : "Instrumental",
-	"target" : "Younkin Success Center", 
-	"category" : "commitments", 
-	"stressor" : "Deadlines"},
+  "source" : "Instrumental",
+  "target" : "Younkin Success Center", 
+  "category" : "commitments", 
+  "stressor" : "Deadlines"},
 {"color" : "#ed553b", 
-	"source" : "Instrumental",
-	"target" : "Dennis Learning Center",  
-	"category" : "commitments", 
-	"stressor" : "Homework/Assignment Management"},
+  "source" : "Instrumental",
+  "target" : "Dennis Learning Center",  
+  "category" : "commitments", 
+  "stressor" : "Homework/Assignment Management"},
 {"color" : "#ed553b", 
-	"source" : "Instrumental",
-	"target" : "Younkin Success Center",  
-	"category" : "commitments", 
-	"stressor" : "Homework/Assignment Management"},
+  "source" : "Instrumental",
+  "target" : "Younkin Success Center",  
+  "category" : "commitments", 
+  "stressor" : "Homework/Assignment Management"},
 {"color" : "#ed553b", 
-	"source" : "Instrumental",
-	"target" : "Office of Disability Services", 
-	"category" : "commitments", 
-	"stressor" : "Homework/Assignment Management"},
+  "source" : "Instrumental",
+  "target" : "Office of Disability Services", 
+  "category" : "commitments", 
+  "stressor" : "Homework/Assignment Management"},
 {"color" : "#ed553b", 
-	"source" : "Instrumental",
-	"target" : "Dennis Learning Center", 
-	"category" : "commitments", 
-	"stressor" : "Time Management"},
+  "source" : "Instrumental",
+  "target" : "Dennis Learning Center", 
+  "category" : "commitments", 
+  "stressor" : "Time Management"},
 {"color" : "#ed553b", 
-	"source" : "Instrumental",
-	"target" : "Younkin Success Center", 
-	"category" : "commitments", 
-	"stressor" : "Time Management"},
+  "source" : "Instrumental",
+  "target" : "Younkin Success Center", 
+  "category" : "commitments", 
+  "stressor" : "Time Management"},
 {"color" : "#ed553b", 
-	"source" : "Emotional",
-	"target" : "Wellness Coaching", 
-	"category" : "commitments", 
-	"stressor" : "Time Management"},
+  "source" : "Emotional",
+  "target" : "Wellness Coaching", 
+  "category" : "commitments", 
+  "stressor" : "Time Management"},
 {"color" : "#ed553b", 
-	"source" : "Informational",
-	"target" : "Your Academic Advisor", 
-	"category" : "commitments", 
-	"stressor" : "Academic Performance"},
+  "source" : "Informational",
+  "target" : "Your Academic Advisor", 
+  "category" : "commitments", 
+  "stressor" : "Academic Performance"},
 {"color" : "#ed553b", 
-	"source" : "Informational",
-	"target : "Your Professors",
-	"category" : "commitments", 
-	"stressor" : "Academic Performance"},
+  "source" : "Informational",
+  "target : "Your Professors",
+  "category" : "commitments", 
+  "stressor" : "Academic Performance"},
 {"color" : "#ed553b", 
-	"source" : "Instrumental",
-	"target" : "Younkin Tutoring Services", 
-	"category" : "commitments", 
-	"stressor" : "Academic Performance"},
+  "source" : "Instrumental",
+  "target" : "Younkin Tutoring Services", 
+  "category" : "commitments", 
+  "stressor" : "Academic Performance"},
 {"color" : "#ed553b", 
-	"source" : "Instrumental",
-	"target" : "Math and Statistics Learning Center", 
-	"category" : "commitments", 
-	"stressor" : "Academic Performance"},
+  "source" : "Instrumental",
+  "target" : "Math and Statistics Learning Center", 
+  "category" : "commitments", 
+  "stressor" : "Academic Performance"},
 {"color" : "#ed553b", 
-	"source" : "Instrumental",
-	"target" : "Writing Center", 
-	"category" : "commitments", 
-	"stressor" : "Academic Performance"},
+  "source" : "Instrumental",
+  "target" : "Writing Center", 
+  "category" : "commitments", 
+  "stressor" : "Academic Performance"},
 {"color" : "#ed553b", 
-	"source" : "Instrumental",
-	"target" : "Office of Disability Services", 
-	"category" : "commitments", 
-	"stressor" : "Academic Performance"},
+  "source" : "Instrumental",
+  "target" : "Office of Disability Services", 
+  "category" : "commitments", 
+  "stressor" : "Academic Performance"},
 {"color" : "#ed553b", 
-	"source" : "Emotional",
-	"target" : "Counseling and Consultation Services", 
-	"category" : "commitments", 
-	"stressor" : "Fear of Failure"},
+  "source" : "Emotional",
+  "target" : "Counseling and Consultation Services", 
+  "category" : "commitments", 
+  "stressor" : "Fear of Failure"},
 {"color" : "#ed553b", 
-	"source" : "Emotional",
-	"target" : "Wellness Coaching", 
-	"category" : "commitments", 
-	"stressor" : "Fear of Failure"},
+  "source" : "Emotional",
+  "target" : "Wellness Coaching", 
+  "category" : "commitments", 
+  "stressor" : "Fear of Failure"},
 {"color" : "#ed553b", 
-	"source" : "Emotional", 
-	"target" : "Counseling and Consultation Services", 
-	"category" : "commitments", 
-	"stressor" : "School and Social Life Balance"},
+  "source" : "Emotional", 
+  "target" : "Counseling and Consultation Services", 
+  "category" : "commitments", 
+  "stressor" : "School and Social Life Balance"},
 {"color" : "#ed553b", 
-	"source" : "Emotional",
-	"target" : "Wellness Coaching", 
-	"category" : "commitments", 
-	"stressor" : "School and Social Life Balance"},
+  "source" : "Emotional",
+  "target" : "Wellness Coaching", 
+  "category" : "commitments", 
+  "stressor" : "School and Social Life Balance"},
 {"color" : "#ed553b", 
-	"source" : "Informational",
-	"target" : "Your Boss",  
-	"category" : "commitments", 
-	"stressor" : "Work-Study Balance"},
+  "source" : "Informational",
+  "target" : "Your Boss",  
+  "category" : "commitments", 
+  "stressor" : "Work-Study Balance"},
 {"color" : "#ed553b", 
-	"source" : "Informational",
-	"target" : "Your Academic Advisor",
-	"category" : "commitments", 
-	"stressor" : "Work-Study Balance"},
+  "source" : "Informational",
+  "target" : "Your Academic Advisor",
+  "category" : "commitments", 
+  "stressor" : "Work-Study Balance"},
 {"color" : "#ed553b", 
-	"source" : "Informational",
-	"target" : "Your Professors", 
-	"category" : "commitments", 
-	"stressor" : "Work-Study Balance"},
+  "source" : "Informational",
+  "target" : "Your Professors", 
+  "category" : "commitments", 
+  "stressor" : "Work-Study Balance"},
 ];
 
 */
@@ -736,9 +730,7 @@ svg.append("a")
 svg.append("text")
     .attr("x", -20)
     .attr("y", 411)
-    .style("fill", "black")
-    .style("font-size", "12px")
-	.attr("font-family", "Montserrat")
+    .attr("id", "resource-text")
     .attr("dy", ".35em")
     .attr("text-anchor", "middle")
     .style("pointer-events", "none")
@@ -763,9 +755,7 @@ svg.append("a")
 svg.append("text")
     .attr("x", -162)
     .attr("y", 361)
-    .style("fill", "black")
-    .style("font-size", "12px")
-	.attr("font-family", "Montserrat")
+    .attr("id", "resource-text")
     .attr("dy", ".35em")
     .attr("text-anchor", "middle")
     .style("pointer-events", "none")
@@ -789,9 +779,7 @@ svg.append("a")
 svg.append("text")
     .attr("x", -300)
     .attr("y", 386)
-    .style("fill", "black")
-    .style("font-size", "12px")
-	.attr("font-family", "Montserrat")
+    .attr("id", "resource-text")
     .attr("dy", ".35em")
     .attr("text-anchor", "middle")
     .style("pointer-events", "none")
