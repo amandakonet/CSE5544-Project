@@ -8,6 +8,9 @@ stress portrait.html / stress portrait script.js: Initial stress portrait
 
 stress portrait selected.html / stress portrait script.js: Selected stressors
 
+stressportrait_circles.html: Positive psychology stratgies
+
 socialsupport.html: Social support network aspect
 
-one expert; 3 users?; have specific goals... tell what designed for
+project_evaluation: Evaluation with Dr. Yvette Shen and Shasha Yu
+
