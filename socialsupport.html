@@ -12,7 +12,7 @@ body {
 h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
-  //color: #707070;
+  color: #707070;
 }
 
 #circle-text {
@@ -420,14 +420,12 @@ svg.append("text")
   .attr("id", "circle-text");
 
 /**********************************************
-EXPLORING LINKING NODES TO WEBPAGES
+ LINKING NODES TO WEBPAGES
 
 Array for setting up  the link objects.
    Contains: 
-    name: resource + #
-    points: location where shapes are on screen
-      Generally (though not always):
-      (x, y): bottom left
+    name: name of resource
+    x and y: points where shapes are located on the screen
 
     color: the color to be used (hue chosen by category)
     (#47ab6c = green (career), #f0a515 = yellow (connection), #0894a1 = blue (care), #ed553b = red (commitments))
@@ -445,7 +443,7 @@ var arrayOfResources = [
   "color" : "#ed553b", 
   "support": "Instrumental", 
   "category" : "career", 
-  "stressor" : "Homework/Assignment Management",
+  "stressor" : "Homework & Assignment Management",
   "site" : "https://dennislearningcenter.osu.edu/",
   "x" : -60, 
 "y" : 400,
@@ -461,7 +459,7 @@ var arrayOfResources = [
   "color" : "#47ab6c", 
   "support": "Instrumental", 
   "category" : "career", 
-  "stressor" : "Public Speaking and Presentation",
+  "stressor" : "Public Speaking & Presentation",
   "site" : "https://comm.osu.edu/courses/comm/2110",
   "x" : -197, 
 "y" : 387,
@@ -557,7 +555,7 @@ var arrayOfResources = [
   "color" : "#47ab6c", 
   "support": "Informational", 
   "category" : "career", 
-  "stressor" : "Personal Finances",
+  "stressor" : "Personal Finance",
   "site" : "https://swc.osu.edu/services/financial-education/financial-coaching/",
    "x" : -494, 
 "y" : 205,
@@ -573,7 +571,7 @@ var arrayOfResources = [
   "color" : "#47ab6c", 
   "support": "Instrumental", 
   "category" : "career", 
-  "stressor" : "Personal Finances",
+  "stressor" : "Personal Finance",
   "site" : "https://buckeyelink.osu.edu/",
   "x" : -287, 
 "y" : 145,
@@ -589,7 +587,7 @@ var arrayOfResources = [
   "color" : "#47ab6c", 
   "support": "Instrumental", 
   "category" : "career", 
-  "stressor" : "Personal Finances",
+  "stressor" : "Personal Finance",
   "site" : "https://activities.osu.edu/programs/dtix",
   "x" : -330, 
 "y" : 195,
@@ -605,7 +603,7 @@ var arrayOfResources = [
   "color" : "#47ab6c", 
   "support": "Instrumental", 
   "category" : "career", 
-  "stressor" : "VISA",
+  "stressor" : "Career Anxiety",
   "site" : "https://oia.osu.edu/",
   "x" : -424, 
 "y" : 95,
@@ -621,7 +619,23 @@ var arrayOfResources = [
   "color" : "#f0a515", 
   "support": "Emotional", 
   "category" : "connection", 
-  "stressor" : "Loneliness/Homesickness",
+  "stressor" : "Loneliness",
+  "site" : "https://ohiostate.ifiusa.org/",
+  "x" : -500, 
+"y" : 325,
+"hgt" : 20,
+"wid" : 140,
+//label properties
+"xlab" : -462,
+"ylab" : 305,
+"dx" : -30,
+"dy" : "3em"
+},{
+"name" : "International Friendships",
+  "color" : "#f0a515", 
+  "support": "Emotional", 
+  "category" : "connection", 
+  "stressor" : "Homesickness",
   "site" : "https://ohiostate.ifiusa.org/",
   "x" : -500, 
 "y" : 325,
@@ -669,7 +683,7 @@ var arrayOfResources = [
   "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "connection", 
-  "stressor" : "Extracurricular Activities",
+  "stressor" : "Extracurriculars",
   "site" : "https://recsports.osu.edu/intramural-sports",
 "x" : -387, 
 "y" : 295,
@@ -781,7 +795,7 @@ var arrayOfResources = [
   "color" : "#0894a1", 
   "support": "Instrumental", 
   "category" : "care", 
-  "stressor" : "Physical Activity and Fitness",
+  "stressor" : "Staying Active",
   "site" : "https://recsports.osu.edu/facilities/recreation-and-physical-activity-center-rpac",
 "x" : -200, 
 "y" : 69,
@@ -797,7 +811,7 @@ var arrayOfResources = [
   "color" : "#0894a1", 
   "support": "Instrumental", 
   "category" : "care", 
-  "stressor" : "Physical Activity and Fitness",
+  "stressor" : "Staying Active",
   "site" : "https://recsports.osu.edu/facilities/jesse-owens-north-jon-recreation-center",
 "x" : -198, 
 "y" : 140,
@@ -813,7 +827,7 @@ var arrayOfResources = [
   "color" : "#0894a1", 
   "support": "Instrumental", 
   "category" : "care", 
-  "stressor" : "Physical Activity and Fitness",
+  "stressor" : "Staying Active",
   "site" : "https://recsports.osu.edu/facilities/jesse-owens-south-jos-recreation-center",
  "x" : -285, 
 "y" : 269,
@@ -829,7 +843,7 @@ var arrayOfResources = [
   "color" : "#0894a1", 
   "support": "Instrumental", 
   "category" : "care", 
-  "stressor" : "Physical Activity and Fitness",
+  "stressor" : "Staying Active",
   "site" : "https://recsports.osu.edu/facilities/north-recreation-center",
 "x" : -385, 
 "y" : 170,
@@ -845,7 +859,7 @@ var arrayOfResources = [
   "color" : "#0894a1", 
   "support": "Instrumental", 
   "category" : "care", 
-  "stressor" : "Physical Activity and Fitness",
+  "stressor" : "Staying Active",
   "site" : "https://recsports.osu.edu/facilities/adventure-recreation-center-arc",
  "x" : -435, 
 "y" : 120,
@@ -861,7 +875,7 @@ var arrayOfResources = [
   "color" : "#ed553b", 
   "support": "Instrumental", 
   "category" : "commitments", 
-  "stressor" : "Homework/Assignment Management",
+  "stressor" : "Homework & Assignment Management",
   "site" : "http://younkinsuccess.osu.edu/",
 "x" : -198, 
 "y" : 170,
@@ -877,7 +891,7 @@ var arrayOfResources = [
   "color" : "#ed553b", 
   "support": "Instrumental", 
   "category" : "commitments", 
-  "stressor" : "Homework/Assignment Management",
+  "stressor" : "Homework & Assignment Management",
   "site" : "https://slds.osu.edu/",
 "x" : -325, 
 "y" : 220,
@@ -973,21 +987,27 @@ var arrayOfResources = [
 
 /*******************************
     
-CREATE THE OBJECTS CONTAINING THE RESOURCES
+CREATE THE OBJECTS CONTAINING THE LINKED RESOURCES
 BASED ON THE SELECTED STRESSORS
 
 ********************************/
 
-var g = svg.selectAll("g")
-  	.data(arrayOfResources)
-  	.enter().append("g");
+/*
+    Filter the data by only those stressors that were selected by the user
+*/
+//var selectedResourcesArr = [];
 
-var len = selectedStressorsArr.length;
-for(var i = 0; i < len - 1; i++) {
-	if(selectedStressorsArr[i] = arrayOfResources[i]){
+filtered = arrayOfResources.filter(function (d) {
+    return selectedStressorsArr.indexOf(d.stressor) > -1;});
+console.log(filtered);
+
+var g = svg.selectAll("g")
+  	.data(filtered)
+  	.enter().append("g");
 
 g.append("a")
     .attr("class", "rect")
+    .data(filtered)
     .attr("xlink:href", function(d) {return d.site;})
     .append("rect") 
     .attr("x", function(d) {return d.x;})
@@ -1001,15 +1021,14 @@ g.append("a")
 
 g.append("text")
     .attr("id", "resource-text")
-    .data(arrayOfResources)
+    .data(filtered)
     .attr("x", function(d){return d.xlab})
     .attr("y", function(d){return d.ylab})
     .attr("dx", function(d){return d.dx})
     .attr("dy", function(d){return d.dy})    
-.attr("fill", "#ffffff")
+.attr("fill", "#454545")
     .text(function(d) {return d.name;});
-}
-}
+
 /**********************************************
 Function used to pass the url to the next page
 **********************************************/
