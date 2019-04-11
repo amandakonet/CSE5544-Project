@@ -12,5 +12,7 @@ stressportrait_circles.html: Positive psychology stratgies
 
 socialsupport.html: Social support network aspect
 
+colorScheme.docx: Colors provided to us by Dr. Yvette Shen
+
 project_evaluation: Evaluation with Dr. Yvette Shen and Shasha Yu
 
