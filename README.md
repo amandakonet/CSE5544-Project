@@ -14,5 +14,7 @@ socialsupport.html: Social support network aspect
 
 colorScheme.docx: Colors provided to us by Dr. Yvette Shen
 
+mockups_03242019.pdf: Mockups conceptualized and designed by Dr. Yvette Shen and Shasha Yu
+
 project_evaluation: Evaluation with Dr. Yvette Shen and Shasha Yu
 
