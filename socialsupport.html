@@ -575,7 +575,6 @@ svg.append("text")
   .attr("y", 95)
   .text("Appraisal")
   .attr("id", "circle-text")
-  .attr("fill", "black")
   .attr("transform", "translate (80, 108)" + "rotate(70)");
 //label for circle 2
 svg.append("text")
@@ -583,7 +582,6 @@ svg.append("text")
   .attr("y", 50)
   .text("Appraisal")
   .attr("id", "circle-text")
-  .attr("fill", "black")
   .attr("transform", "translate (-45, 85)" + "rotate(-65)");
 //label for circle 3
 svg.append("text")
@@ -591,7 +589,6 @@ svg.append("text")
   .attr("y", 0)
   .text("Instrumental")
   .attr("id", "circle-text")
-  .attr("fill", "black")
   .attr("transform", "translate (5, 57)" + "rotate(-23)");
 //label for circle 4
 svg.append("text")
@@ -599,7 +596,6 @@ svg.append("text")
   .attr("y", -75)
   .text("Informational")
   .attr("id", "circle-text")
-  .attr("fill", "black")
   .attr("transform", "translate (5, 48)" + "rotate(23)");
 //label for circle 5
 svg.append("text")
@@ -607,7 +603,6 @@ svg.append("text")
   .attr("y", 0)
   .text("Emotional")
   .attr("id", "circle-text")
-  .attr("fill", "black")
   .attr("transform", "translate (110, -165)" + "rotate(68)");
 //label for circle 6
 svg.append("text")
@@ -615,7 +610,6 @@ svg.append("text")
   .attr("y", 120)
   .text("Emotional")
   .attr("id", "circle-text")
-  .attr("fill", "black")
   .attr("transform", "translate (0, 360)" + "rotate(-65)");
 //label for circle 7
 svg.append("text")
@@ -623,7 +617,6 @@ svg.append("text")
   .attr("y", 182)
   .text("Informational")
   .attr("id", "circle-text")
-  .attr("fill", "black")
   .attr("transform", "translate (0, 100)" + "rotate(-20)");
 //label for circle 8
 svg.append("text")
@@ -631,7 +624,6 @@ svg.append("text")
   .attr("y", 134)
   .text("Instrumental")
   .attr("id", "circle-text")
-  .attr("fill", "black")
   .attr("transform", "translate (0, 50)" + "rotate(28)");
 
 /*******************************
@@ -677,8 +669,7 @@ svg.append("text")
   .attr("x", 425)
   .attr("y", -118)
   .text("commitments")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 //legend 2
 var legend2 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient2").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend2.append("stop").attr("offset", "0%").attr("stop-color", "#fae2b3").attr("stop-opacity", 1);
@@ -689,8 +680,7 @@ svg.append("text")
   .attr("x", 525)
   .attr("y", -118)
   .text("connection")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 //legend 3
 var legend3 = svg.append("defs").append("svg:linearGradient")
   .attr("id", "gradient3")
@@ -707,8 +697,7 @@ svg.append("text")
   .attr("x", 625)
   .attr("y", -118)
   .text("care")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 //legend 4
 var legend4 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient4").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend4.append("stop").attr("offset", "0%").attr("stop-color", "#cde8d6").attr("stop-opacity", 1);
@@ -719,8 +708,7 @@ svg.append("text")
   .attr("x", 725)
   .attr("y", -118)
   .text("career")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 //legend 5
 var legend5 = svg.append("defs");
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#ede6de").attr("transform", "translate(500,-110)" + "rotate(90)");
@@ -729,15 +717,13 @@ svg.append("text")
   .attr("x", 425)
   .attr("y", -75)
   .text("emotional")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 //label for legend 5 line 2
 svg.append("text")
   .attr("x", 425)
   .attr("y", -62)
   .text("support")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 //legend 6
 var legend5 = svg.append("defs");
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#eff2e2").attr("transform", "translate(600,-110)" + "rotate(90)");
@@ -746,15 +732,13 @@ svg.append("text")
   .attr("x", 525)
   .attr("y", -75)
   .text("informational")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 //label for legend 6 line 2
 svg.append("text")
   .attr("x", 525)
   .attr("y", -62)
   .text("support")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 //legend 7
 var legend5 = svg.append("defs");
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#e3e6e7").attr("transform", "translate(700,-110)" + "rotate(90)");
@@ -763,15 +747,13 @@ svg.append("text")
   .attr("x", 625)
   .attr("y", -75)
   .text("instrumental")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 //label for legend 7 line 2
 svg.append("text")
   .attr("x", 625)
   .attr("y", -62)
   .text("support")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 //legend 8
 var legend5 = svg.append("defs");
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#f9e7da").attr("transform", "translate(800,-110)" + "rotate(90)");
@@ -780,15 +762,13 @@ svg.append("text")
   .attr("x", 725)
   .attr("y", -75)
   .text("appraisal")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 //label for legend 8 line 2
 svg.append("text")
   .attr("x", 725)
   .attr("y", -62)
   .text("support")
-  .attr("id", "legend-text")
-  .attr("fill", "black");
+  .attr("id", "legend-text");
 
 /**********************************************
   Creating the curved labels 
