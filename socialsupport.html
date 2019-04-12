@@ -65,6 +65,129 @@ axis text {
     margin-left: 50px;
     margin-top: 600px;
 }
+
+/* The button to open the modal */
+.supNet-button {
+    width: 12em;
+    height: 4.5em;
+    border: 2px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #454545;
+    border-color: #707070;
+    background: #efefef;
+    border-radius: 5px;
+    position: absolute;
+    line-height: 30px;
+    margin-left: 130px;
+    margin-top: 60px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0);  /*Display over screen */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  font-family: "Montserrat", sans-serif;
+  color: #707070;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 30px;
+  border: 1px solid;
+  border-color: #efefef;
+  border-radius: 5px;
+  width: 25%;
+  height:50%; /* Could be more or less, depending on screen size*/
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#input-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #cdcdcd;
+  text-align: center;
+  width: 300px;
+  height: 2em;
+  border: 1px solid #707070;
+}
+
+#prompt-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #707070;
+  padding-left: 10px;
+}
+
+.checkboxes {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #707070;
+}
+
+.checkboxes input{
+  margin: -10px 10px 20px 40px;
+}
+
+.supNet-done-button {
+    width: 7em;
+    height: 2em;
+    border: 2px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #454545;
+    border-color: #707070;
+    background: #efefef;
+    position: absolute;
+    line-height: 35px;
+    margin-left: 20px;
+}
+
+.supNet-next-button {
+    width: 7em;
+    height: 2em;
+    border: 2px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #454545;
+    border-color: #707070;
+    background: #efefef;
+    position: absolute;
+    line-height: 35px;
+    margin-left: 190px;
+}
+
+
 </style>
 
 <body>
@@ -76,9 +199,292 @@ axis text {
 <!-- load the d3.js library -->     
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
+<!-- load jquery library --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Trigger/Open the Modal -->
+  <button class = "supNet-button" id = "supNet-button"> Click to input personal connections </button>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <!-- Title and name of support -->
+        <center><p id = "prompt-text">Input your social support network</p></center>
+        <form>
+            <center><input type="text" id="input-text" name="Social Support" value="Name (friends, relatives, pets, etc)"></center>
+      </form>
+      <br>
+      <p id = "prompt-text">Type of Support</p>
+      <div class = "checkboxes">
+        <span>
+        <form action="/action_page.php" method="get">
+          <input type="checkbox" id="informational" name="informational" value="informational">Informational
+          <input type="checkbox" id="emotional" name="emotional" value="emotional">Emotional  
+          <br>
+          <input type="checkbox" id="instrumental" name="instrumental" value="instrumental">Instrumental
+          <input type="checkbox" id="appraisal" name="appraisal" value="appraisal">Appraisal
+          <br>
+          <p id = "prompt-text">Stressor Category</p>
+          <input type="checkbox" id="commitment" name="commitment" value="commitment">Commitment    
+          <input type="checkbox" id="care" name="care" value="care">Care
+          <br>
+          <input type="checkbox" id="connection" name="connection" value="connection">Connection   
+          <input type="checkbox" id="career" name="career" value="career">Career
+          <br>
+          <br>
+        </form>
+        </span>
+      </div>
+          <button class="supNet-done-button" id="supNet-done-button"><b>DONE</b></button>
+          <button class="supNet-next-button" id="supNet-next-button"><b>NEXT</b></button> 
+    </div>
+
+  </div>
+
 <!-- social support network code -->
 
 <script>
+
+    /*******************************************
+
+        Social support network user-input
+
+    ********************************************/
+
+    //Create a map where the key is the name and the value is the types of support that person helps with. 
+    var userInputMap = new Map();
+
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var launch_supNet_btn = document.getElementById("supNet-button");
+
+    //Get the DONE button
+    var supNet_done_btn = document.getElementById("supNet-done-button");
+
+    //Get the NEXT button
+    var supNet_next_btn = document.getElementById("supNet-next-button");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal 
+    launch_supNet_btn.onclick = function() {
+      modal.style.display = "block";
+    } 
+
+    // When the user clicks on <span> (x), save the input and close the modal
+    span.onclick = function() {
+      var supportName = document.getElementById("input-text").value;
+      var checkedBoxes = [];
+
+      /*    Go through each of the checks; add the value 
+          of the checkbox if it has been checked */
+
+      //Emotional
+      var emotional = document.getElementById("emotional");
+      if (emotional.checked) {
+        checkedBoxes.push(emotional.value);
+      }
+
+      //Instrumental
+      var instrumental = document.getElementById("instrumental");
+      if (instrumental.checked) {
+        checkedBoxes.push(instrumental.value);
+      }
+
+      //informational
+      var informational = document.getElementById("informational");
+      if (informational.checked) {
+        checkedBoxes.push(informational.value);
+      }
+
+      //appraisal
+      var appraisal = document.getElementById("appraisal");
+      if (appraisal.checked) {
+        checkedBoxes.push(appraisal.value);
+      }
+
+      //commitment
+      var commitment = document.getElementById("commitment");
+      if (commitment.checked) {
+        checkedBoxes.push(commitment.value);
+      }
+
+      //connection
+      var connection = document.getElementById("connection");
+      if (connection.checked) {
+        checkedBoxes.push(connection.value);
+      }
+
+      //care
+      var care = document.getElementById("care");
+      if (care.checked) {
+        checkedBoxes.push(care.value);
+      }
+
+      //career
+      var career = document.getElementById("career");
+      if (career.checked) {
+        checkedBoxes.push(career.value);
+      }
+
+      //console.log(checkedBoxes);
+      // Save checked boxes to map, provided the supportName is not already in there
+      if (!userInputMap.has(supportName)) {
+        userInputMap.set(supportName, checkedBoxes);
+      }
+      //console.log(userInputMap);
+
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, keep modal open
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "block";
+        }
+    }
+
+    // When the user clicks on the DONE button, close the modal
+    supNet_done_btn.onclick = function() {
+      var supportName = document.getElementById("input-text").value;
+      var checkedBoxes = [];
+
+      /*    Go through each of the checks; add the value 
+          of the checkbox if it has been checked */
+
+      //Emotional
+      var emotional = document.getElementById("emotional");
+      if (emotional.checked) {
+        checkedBoxes.push(emotional.value);
+      }
+
+      //Instrumental
+      var instrumental = document.getElementById("instrumental");
+      if (instrumental.checked) {
+        checkedBoxes.push(instrumental.value);
+      }
+
+      //informational
+      var informational = document.getElementById("informational");
+      if (informational.checked) {
+        checkedBoxes.push(informational.value);
+      }
+
+      //appraisal
+      var appraisal = document.getElementById("appraisal");
+      if (appraisal.checked) {
+        checkedBoxes.push(appraisal.value);
+      }
+
+      //commitment
+      var commitment = document.getElementById("commitment");
+      if (commitment.checked) {
+        checkedBoxes.push(commitment.value);
+      }
+
+      //connection
+      var connection = document.getElementById("connection");
+      if (connection.checked) {
+        checkedBoxes.push(connection.value);
+      }
+
+      //care
+      var care = document.getElementById("care");
+      if (care.checked) {
+        checkedBoxes.push(care.value);
+      }
+
+      //career
+      var career = document.getElementById("career");
+      if (career.checked) {
+        checkedBoxes.push(career.value);
+      }
+
+      //console.log(checkedBoxes);
+      // Save checked boxes to map, provided the supportName is not already in there
+      if (!userInputMap.has(supportName)) {
+        userInputMap.set(supportName, checkedBoxes);
+      }
+      console.log(userInputMap);
+
+      modal.style.display = "none";
+    }
+
+    // When the user clicks on the NEXT button, move to a new modal screen
+    supNet_next_btn.onclick = function() {
+      modal.style.display = "block";
+      var supportName = document.getElementById("input-text").value;
+      var checkedBoxes = [];
+
+      /*    Go through each of the checks; add the value 
+          of the checkbox if it has been checked */
+
+      //Emotional
+      var emotional = document.getElementById("emotional");
+      if (emotional.checked) {
+        checkedBoxes.push(emotional.value);
+      }
+
+      //Instrumental
+      var instrumental = document.getElementById("instrumental");
+      if (instrumental.checked) {
+        checkedBoxes.push(instrumental.value);
+      }
+
+      //informational
+      var informational = document.getElementById("informational");
+      if (informational.checked) {
+        checkedBoxes.push(informational.value);
+      }
+
+      //appraisal
+      var appraisal = document.getElementById("appraisal");
+      if (appraisal.checked) {
+        checkedBoxes.push(appraisal.value);
+      }
+
+      //commitment
+      var commitment = document.getElementById("commitment");
+      if (commitment.checked) {
+        checkedBoxes.push(commitment.value);
+      }
+
+      //connection
+      var connection = document.getElementById("connection");
+      if (connection.checked) {
+        checkedBoxes.push(connection.value);
+      }
+
+      //care
+      var care = document.getElementById("care");
+      if (care.checked) {
+        checkedBoxes.push(care.value);
+      }
+
+      //career
+      var career = document.getElementById("career");
+      if (career.checked) {
+        checkedBoxes.push(career.value);
+      }
+
+      //console.log(checkedBoxes);
+      // Save checked boxes to map, provided the supportName is not already in there
+      if (!userInputMap.has(supportName)) {
+        userInputMap.set(supportName, checkedBoxes);
+      }
+      //console.log(userInputMap);
+
+      document.getElementById("input-text").value =  "Name (friends, relatives, pets, etc.)";
+      $('input[type="checkbox"]' ).prop('checked', false);
+    }
+
+
+
 /* Back button */     
 var buttonBack = document.getElementById("button-back");
      
@@ -1385,8 +1791,8 @@ filtered = arrayOfResources.filter(function (d) {
 console.log(filtered);
 
 var g = svg.selectAll("g")
-  	.data(filtered)
-  	.enter().append("g");
+    .data(filtered)
+    .enter().append("g");
 
 g.append("a")
     .attr("class", "rect")
