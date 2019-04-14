@@ -30,7 +30,8 @@ h2 {
 #resource-text {
   font-family: "Montserrat", sans-serif;
   font-size: 11px;
-  color: #707070;  
+  color: #707070; 
+  text-align: center; 
 }
 .link {
     fill:none;
@@ -340,6 +341,9 @@ axis text {
       //console.log(userInputMap);
 
       modal.style.display = "none";
+
+      //Call the function that will create the social support network
+      getSupportNet(userInputMap);
     }
 
     // When the user clicks anywhere outside of the modal, keep modal open
@@ -412,8 +416,12 @@ axis text {
       }
       console.log(userInputMap);
 
+      //Call the function that will create the social support network
+      getSupportNet(userInputMap);
+
       modal.style.display = "none";
     }
+
 
     // When the user clicks on the NEXT button, move to a new modal screen
     supNet_next_btn.onclick = function() {
@@ -480,8 +488,15 @@ axis text {
       //console.log(userInputMap);
 
       document.getElementById("input-text").value =  "Name (friends, relatives, pets, etc.)";
-      $('input[type="checkbox"]' ).prop('checked', false);
+      $('input[type="checkbox"]').prop('checked', false);
     }
+
+      /*****************************************************
+        Results of code above: a map called userInputMap
+        that contains a (key,value) map of the format:
+          key (string): person who provides support to user
+          value (array): areas in which support isprovided
+      ******************************************************/
 
 
 
@@ -627,18 +642,20 @@ svg.append("text")
   .attr("transform", "translate (0, 50)" + "rotate(28)");
 
 /*******************************
+
     GET SELECTED STRESSORS
+
 ********************************/
-// Get the selected stressors from window URL 
+
 var selectedStressorsArr = [];
 var id = window.location.href.split('_');
-console.log(id);
+//console.log(id);
 var len = id.length;
 for(var i =0; i < len-1; i++) {
     console.log(i);
     selectedStressorsArr[i] = id.pop().replace(/%20/g, " ");
 }
-console.log(selectedStressorsArr);
+//console.log(selectedStressorsArr);
 buttonBack.addEventListener('click', function() {
     var array = "array";
     var stressorStr = "/";
@@ -1755,12 +1772,12 @@ var arrayOfResources = [
 }
 ];
 
-/*******************************
+/**************************************************
     
 CREATE THE OBJECTS CONTAINING THE LINKED RESOURCES
 BASED ON THE SELECTED STRESSORS
 
-********************************/
+**************************************************/
 
 /*
     Filter the data by only those stressors that were selected by the user
@@ -1768,7 +1785,7 @@ BASED ON THE SELECTED STRESSORS
 
 filtered = arrayOfResources.filter(function (d) {
     return selectedStressorsArr.indexOf(d.stressor) > -1;});
-console.log(filtered);
+//console.log(filtered);
 
 var g = svg.selectAll("g")
     .data(filtered)
@@ -1795,11 +1812,95 @@ g.append("text")
     .attr("y", function(d){return d.ylab})
     .attr("dx", function(d){return d.dx})
     .attr("dy", function(d){return d.dy})    
-.attr("fill", "#454545")
+    .attr("fill", "#454545")
     .text(function(d) {return d.name;});
 
+/********************************************
+
+    Function to append user-inputted support
+
+********************************************/
+function getSupportNet(supportMap) {
+
+  //Get names and store in array
+  var names = Array.from(supportMap.keys());
+
+  //Create an array that 
+  var positionNetwork = [];
+
+  for(i = 0; i < names.length; i++) {
+    var name = names[i];
+    var x = d3.randomUniform(260,450)();
+    var y = d3.randomUniform(-100, 300)();
+    positionNetwork.push({"name" : name, "x": x, "y": y});
+  }
+
+  console.log(positionNetwork);
+
+
+  var g = svg.selectAll("g")
+    .data(names)
+    .enter().append("g"); 
+
+  //Add rect for each person inputted
+  var rectNetwork = g.append("a")
+    .attr("class", "rect")
+    .data(positionNetwork)
+    .append("rect") 
+    .attr("x", function(d) {return d.x;})
+    .attr("y", function(d) {return d.y;})
+    .attr("height", "1em")//function(d) {return d.hgt;})
+    .attr("width", "10px")//function(d) {return d.wid;})
+    .style("fill", "#ed553b")//function (d) {return d.color;})
+    .style("opacity", 0.8);
+    //.attr("rx", 10)
+    //.attr("ry", 10);
+
+  //add text
+  var txt = g.append("text")
+    .attr("id", "resource-text")
+    .data(positionNetwork)
+    .attr("x",function(d){return d.x;})
+    .attr("y",function(d){return (d.y+10);})
+    .text(function(d,i) {return d.name;});
+
+
+  //dynamically resize the rectangle based on the length of text
+  var txtWidth = txt.node().getBBox().width + 5; //<-- get our height plus a margin
+  rectNetwork.attr("width", txtWidth); 
+
+  //recenter the text based on new rect length
+  txt.attr("x", function(d) {return (d.x+2.5)});
+}
+
+
+
+
+
+
+/****************************************************
+  
+  Plot the student's entered personal support network
+
+****************************************************
+
+
+g.append("text")
+    .attr("id", "resource-text")
+    .data(userInputMap)
+    .attr("x", 500)
+    .attr("y", 500)
+    .attr("dx", 1)
+    .attr("dy", 2)    
+.attr("fill", "#454545")
+    .text(function(d) {return d.keys();});*/
+  
+
+
 /**********************************************
+
 Function used to pass the url to the next page
+
 **********************************************/
 function URL_add_parameter(url, param, value){
     var hash       = {};
