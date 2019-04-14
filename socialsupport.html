@@ -15,6 +15,13 @@ h2 {
   color: #707070;
 }
 
+#outside-circle-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  color: #707070;
+  font-weight: bold;
+}
+
 #circle-text {
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
@@ -63,7 +70,7 @@ axis text {
     border-radius: 5px;
     position: absolute;
     line-height: 35px;
-    margin-left: 50px;
+    margin-left: 100px;
     margin-top: 600px;
 }
 
@@ -197,7 +204,8 @@ axis text {
 
 <div class="button-back" id = "button-back">Back</div>
 
-<!-- load the d3.js library -->     
+<!-- load the d3.js library -->    
+<script src="https://d3js.org/d3.v3.min.js"></script> 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <!-- load jquery library --> 
@@ -210,7 +218,7 @@ axis text {
   <div id="myModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
-      <span class="close">&times;</span>
+      <!--<span class="close">&times;</span> -->
       <!-- Title and name of support -->
         <center><p id = "prompt-text">Input your social support network</p></center>
         <form>
@@ -270,20 +278,22 @@ axis text {
     var supNet_next_btn = document.getElementById("supNet-next-button");
 
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+    //var span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks on the button, open the modal 
+    // When the user clicks on the launch button, open the modal 
     launch_supNet_btn.onclick = function() {
       modal.style.display = "block";
+      document.getElementById("input-text").value =  "Name (friends, relatives, pets, etc.)";
+      $('input[type="checkbox"]').prop('checked', false);
     } 
 
-    // When the user clicks on <span> (x), save the input and close the modal
+    /*
+     When the user clicks on the X button, close the modal and save the input
     span.onclick = function() {
       var supportName = document.getElementById("input-text").value;
       var checkedBoxes = [];
 
-      /*    Go through each of the checks; add the value 
-          of the checkbox if it has been checked */
+      Go through each of the checks; add the value of the checkbox if it has been checked 
 
       //Emotional
       var emotional = document.getElementById("emotional");
@@ -338,13 +348,12 @@ axis text {
       if (!userInputMap.has(supportName)) {
         userInputMap.set(supportName, checkedBoxes);
       }
-      //console.log(userInputMap);
-
-      modal.style.display = "none";
 
       //Call the function that will create the social support network
       getSupportNet(userInputMap);
-    }
+
+      modal.style.display = "none";
+    } */
 
     // When the user clicks anywhere outside of the modal, keep modal open
     window.onclick = function(event) {
@@ -353,7 +362,9 @@ axis text {
         }
     }
 
-    // When the user clicks on the DONE button, close the modal
+    /*
+     When the user clicks on the DONE button, close the modal and save the input
+    */
     supNet_done_btn.onclick = function() {
       var supportName = document.getElementById("input-text").value;
       var checkedBoxes = [];
@@ -420,6 +431,7 @@ axis text {
       getSupportNet(userInputMap);
 
       modal.style.display = "none";
+      launch_supNet_btn.style.display = "none";
     }
 
 
@@ -787,8 +799,11 @@ svg.append("text")
   .text("support")
   .attr("id", "legend-text");
 
+
 /**********************************************
-  Creating the curved labels 
+
+      Creating the curved resource labels 
+
 **********************************************/
 //label for personal connections
 svg.append("path")
@@ -804,7 +819,7 @@ svg.append("text")
     .style("text-anchor","left") //place the text halfway on the arc
     .attr("startOffset", "50%")
     .text("Personal Connections")
-  .attr("id", "circle-text");
+  .attr("id", "outside-circle-text");
 
 //label for on-campus resources
 svg.append("path")
@@ -820,7 +835,7 @@ svg.append("text")
     .style("text-anchor","right") //place the text halfway on the arc
     .attr("startOffset", "25%")
     .text("Campus Resources")
-  .attr("id", "circle-text");
+  .attr("id", "outside-circle-text");
 
 /**********************************************
  LINKING NODES TO WEBPAGES
@@ -833,7 +848,7 @@ Array for setting up  the link objects.
     color: the color to be used (hue chosen by category)
     (#47ab6c = green (career), #f0a515 = yellow (connection), #0894a1 = blue (care), #ed553b = red (commitments))
 
-    resourcei: resource + some number; used to print the text on the object, more than one of these indicates the stressor is printed on multiple lines
+    resource-: resource + some number; used to print the text on the object, more than one of these indicates the stressor is printed on multiple lines
     category: category the resource belongs to (commitments, connection, care, career)
     name: full name of resource
     xlab, ylab, dx, dy: stores location of text 
@@ -1779,20 +1794,15 @@ BASED ON THE SELECTED STRESSORS
 
 **************************************************/
 
-/*
-    Filter the data by only those stressors that were selected by the user
-*/
-
+//Filter the data by only those stressors that were selected by the use
 filtered = arrayOfResources.filter(function (d) {
     return selectedStressorsArr.indexOf(d.stressor) > -1;});
 //console.log(filtered);
 
-/*
 var g = svg.selectAll("g")
     .data(filtered)
     .enter().append("g");
-*/
-  
+
 g.append("a")
     .attr("class", "rect")
     .data(filtered)
@@ -1832,33 +1842,23 @@ function getSupportNet(supportMap) {
 
   for(i = 0; i < names.length; i++) {
     var name = names[i];
-    var x = d3.randomUniform(260,450)();
-    var y = d3.randomUniform(-100, 300)();
+    var x = d3.randomUniform(280,450)();
+    var y = d3.randomUniform(0, 300)();
     positionNetwork.push({"name" : name, "x": x, "y": y});
   }
 
   console.log(positionNetwork);
 
 
+  /* This here is necessary when the user doesn't click on any stressors - 
+   but can we assume this won't happen?
   var g = svg.selectAll("g")
     .data(names)
     .enter().append("g"); 
+    */
 
-  //Add rect for each person inputted
-  var rectNetwork = g.append("a")
-    .attr("class", "rect")
-    .data(positionNetwork)
-    .append("rect") 
-    .attr("x", function(d) {return d.x;})
-    .attr("y", function(d) {return d.y;})
-    .attr("height", "1em")//function(d) {return d.hgt;})
-    .attr("width", "10px")//function(d) {return d.wid;})
-    .style("fill", "#ed553b")//function (d) {return d.color;})
-    .style("opacity", 0.8);
-    //.attr("rx", 10)
-    //.attr("ry", 10);
 
-  //add text
+
   var txt = g.append("text")
     .attr("id", "resource-text")
     .data(positionNetwork)
@@ -1866,38 +1866,39 @@ function getSupportNet(supportMap) {
     .attr("y",function(d){return (d.y+10);})
     .text(function(d,i) {return d.name;});
 
+  var bboxText = txt.node().getBBox().width + 5; //<-- get our width plus a margin
+  console.log(bboxText);
+
+  //Add rect for each person inputted
+  var rectNetwork = g.append("a")
+    .attr("class", "rect2")
+    .data(positionNetwork)
+    .append("rect") 
+    .attr("x", function(d) {return d.x;})
+    .attr("y", function(d) {return d.y;})
+    .attr("height", "1em")
+    .attr("width", txt.node().getBBox().width + 5)
+    .style("fill", "#ed553b")//function (d) {return d.color;})
+    .style("opacity", 0.8);
+    //.attr("rx", 10)
+    //.attr("ry", 10);
 
   //dynamically resize the rectangle based on the length of text
-  var txtWidth = txt.node().getBBox().width + 5; //<-- get our height plus a margin
-  rectNetwork.attr("width", txtWidth); 
+  //var txtWidth = txt.node().getBBox().width + 5; //<-- get our width plus a margin
+  /*var txtWidth = [];
+  for (i = 0; i < txt.length; i++) {
+    txtWidth.push({"width" : txt.node().getBBox().width + 5});
+  }
+  console.log(txtWidth);
+
+  svg.selectAll("rect2")
+    .data(txtWidth)
+    .attr("width", function(d){ return d.width;}); */
 
   //recenter the text based on new rect length
   txt.attr("x", function(d) {return (d.x+2.5)});
 }
-
-
-
-
-
-
-/****************************************************
   
-  Plot the student's entered personal support network
-
-****************************************************
-
-
-g.append("text")
-    .attr("id", "resource-text")
-    .data(userInputMap)
-    .attr("x", 500)
-    .attr("y", 500)
-    .attr("dx", 1)
-    .attr("dy", 2)    
-.attr("fill", "#454545")
-    .text(function(d) {return d.keys();});*/
-  
-
 
 /**********************************************
 
