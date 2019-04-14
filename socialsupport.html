@@ -1787,10 +1787,12 @@ filtered = arrayOfResources.filter(function (d) {
     return selectedStressorsArr.indexOf(d.stressor) > -1;});
 //console.log(filtered);
 
+/*
 var g = svg.selectAll("g")
     .data(filtered)
     .enter().append("g");
-
+*/
+  
 g.append("a")
     .attr("class", "rect")
     .data(filtered)
