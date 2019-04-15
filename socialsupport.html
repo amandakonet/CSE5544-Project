@@ -40,6 +40,14 @@ h2 {
   color: #707070; 
   text-align: center; 
 }
+
+#resource-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  color: #707070; 
+  text-align: center; 
+}
+
 .link {
     fill:none;
     stroke: #DDD;
@@ -664,7 +672,7 @@ var id = window.location.href.split('_');
 //console.log(id);
 var len = id.length;
 for(var i =0; i < len-1; i++) {
-    console.log(i);
+    //console.log(i);
     selectedStressorsArr[i] = id.pop().replace(/%20/g, " ");
 }
 //console.log(selectedStressorsArr);
@@ -1837,14 +1845,34 @@ function getSupportNet(supportMap) {
   //Get names and store in array
   var names = Array.from(supportMap.keys());
 
-  //Create an array that 
+  //Create an array to hold name, random location on screen and type of support
   var positionNetwork = [];
 
+  // For each name that the user inputted, create an entry in positionNetwork
   for(i = 0; i < names.length; i++) {
+
+    //Get name of person and generate random point on screen to place name
     var name = names[i];
-    var x = d3.randomUniform(280,450)();
+    var x = d3.randomUniform(300,450)();
     var y = d3.randomUniform(0, 300)();
-    positionNetwork.push({"name" : name, "x": x, "y": y});
+
+    //Create array that holds all support types for person i
+    var typeSupport = Array.from(supportMap.get(name));
+    //Create array to hold position information for each type of support on screen
+    var supportArray = [];
+
+    //For each type of support person i gives to user,
+    for (j = 0; j < typeSupport.length; j++) {
+      //Get type of support j, create a x and y coordinate for it
+      var type = typeSupport[j];
+      var xlabel = "x" + j;
+      var ylabel = "y" + j;
+      supportArray.push({"type" : type, [xlabel]: x + j, [ylabel]: y + j});
+      //console.log(supportArray);
+    }
+
+    //Finally, push name, position and support information (type + position) to positionNetwork
+    positionNetwork.push({"name" : name, "x": x, "y": y, "support": supportArray});
   }
 
   console.log(positionNetwork);
@@ -1857,43 +1885,42 @@ function getSupportNet(supportMap) {
     .enter().append("g"); 
     */
 
-
-
-  var txt = g.append("text")
-    .attr("id", "resource-text")
-    .data(positionNetwork)
-    .attr("x",function(d){return d.x;})
-    .attr("y",function(d){return (d.y+10);})
-    .text(function(d,i) {return d.name;});
-
-  var bboxText = txt.node().getBBox().width + 5; //<-- get our width plus a margin
-  console.log(bboxText);
+  
+  //var bboxText = txt.node().getBBox().width + 5; //<-- get our width plus a margin
+  //console.log(bboxText);
 
   //Add rect for each person inputted
   var rectNetwork = g.append("a")
     .attr("class", "rect2")
     .data(positionNetwork)
     .append("rect") 
-    .attr("x", function(d) {return d.x;})
-    .attr("y", function(d) {return d.y;})
-    .attr("height", "1em")
-    .attr("width", txt.node().getBBox().width + 5)
+    .attr("x", function(d) {return d.x-20;})
+    //.attr("x", function(i) {
+    //  return positionNetwork["x" + i];})
+    .attr("y", function(d,i) {return d.y;})
+    .attr("height", "20px")
+    .attr("width", "20px")
     .style("fill", "#ed553b")//function (d) {return d.color;})
     .style("opacity", 0.8);
     //.attr("rx", 10)
     //.attr("ry", 10);
 
+  var txt = g.append("text")
+    .attr("id", "network-text")
+    .data(positionNetwork)
+    .attr("x",function(d){return d.x;})
+    .attr("y",function(d){return (d.y+15);})
+    .text(function(d,i) {return d.name;});
+
   //dynamically resize the rectangle based on the length of text
   //var txtWidth = txt.node().getBBox().width + 5; //<-- get our width plus a margin
+  //rectNetwork.attr("width", txtWidth);
+
   /*var txtWidth = [];
   for (i = 0; i < txt.length; i++) {
     txtWidth.push({"width" : txt.node().getBBox().width + 5});
   }
-  console.log(txtWidth);
-
-  svg.selectAll("rect2")
-    .data(txtWidth)
-    .attr("width", function(d){ return d.width;}); */
+  console.log(txtWidth); */
 
   //recenter the text based on new rect length
   txt.attr("x", function(d) {return (d.x+2.5)});
