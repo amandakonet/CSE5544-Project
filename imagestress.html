@@ -77,10 +77,22 @@
 </head>
 
 <body>
+<div id="canvas"></div>
   <script>
 
-  // ------------ Function to Output Images -------------   
-    function outputImage(url, position) {
+  // ------------ Function to Output Images ------------- 
+  var tooltip = d3.select("body")
+                  .append("div")
+                  .style('position','absolute')
+                  .style('text-align','center')
+                  .style('width','30px')
+                  .style('margin-top','-20px')
+                  .style('font','200x sans-serif')
+                  .style('padding','0 6.5px')
+                  .style('opacity',0)
+                  .attr('class','tooltip');
+
+    function outputImage(url, position,label) {
       var imageGroup = svg.append("g")
         //.datum({position: position})
         .attr("transform", d => "translate(" + position + ")");
@@ -96,7 +108,15 @@
         .attr("xlink:href", url)
         .attr("height", image.size)
         .attr("width", image.size)
-        .attr("clip-path", "url(#clip)");
+        .attr("clip-path", "url(#clip)")
+
+        .on("mouseover", function(d){
+                                          tooltip.transition()
+                                            .style('opacity', 10)
+                                          tooltip.html( label)
+                                            .style('left',(d3.event.pageX - 15) + 'px')   //-15 :- tooltip location relative to the mouse
+                                            .style('top', (d3.event.pageY - 15) + 'px')
+                        });
       // var circleOutline = imageGroup.append("circle")
       //   .attr("class", "circle-outline")
       //   .attr("cx", image.size / 2)
