@@ -1,7 +1,7 @@
 Repository for the Pursuit of Happiness project lead by Dr. Yvette Shen with members Kaitlyn Davis(.5135), 
 Amanda Konet(.5) and Meghana Yechuri(.1)
 
-**In order to run the application from start to finish, begin on the Initial Screen HTML page.** Note that clicking on screens independently (i.e., not beginning on the initial screen or the stress portrait HTML page) will result in screens with no data on them.
+**In order to run the application from start to finish, begin on the Initial Screen HTML page.** Note that clicking on screens independently (i.e., not beginning on the initial screen or the stress portrait HTML page) will result in screens with no data on them. Additionally, keep in mind that our goal by the end of the semester was to have base functionality of all of the screens in the project. This project was and continues to be a huge challenge for us, but we have enjoyed working and learning. We are hoping to receive a research grant to continue working on the project in AU19. 
 
 <h2>Ordered List of Screens</h2>
 
