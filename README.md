@@ -8,7 +8,7 @@ stress portrait.html / stress portrait script.js: Initial stress portrait
 
 stress portrait selected.html / stress portrait script.js: Selected stressors
 
-stressportrait_circles.html: Positive psychology stratgies
+stressportrait_circles.html: Positive psychology strategies
 
 socialsupport.html: Social support network aspect
 
