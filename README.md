@@ -5,9 +5,8 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
 
 <h4>The following is an ordered list of the screens you will see in the project</h4>
 
-<h3>Intial Landing Page:</h3> 
-  Brief introduction to the project for the user
-
+<h3>Intial Landing Page:</h3> Brief introduction to the project for the user
+  
   - [Initial Screen HTML](first screen.html)
 
 <h3>Stress Portrait:</h3> Screen where user selects their personal stressors
