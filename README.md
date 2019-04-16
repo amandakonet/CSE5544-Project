@@ -2,7 +2,7 @@ Repository for the Pursuit of Happiness project lead by Dr. Yvette Shen with mem
 Amanda Konet(.5) and Meghana Yechuri(.1)
 
 
-first screen.html: Landing page for implementation
+[Intial Landing Page](/first screen.html): Landing page for implementation
 
 stress portrait.html / stress portrait script.js: Initial stress portrait
 
