@@ -25,7 +25,7 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
 
   -[Stress Portait + Pos Psych Strategies HTML](stressportrait_circles.html)
 
-<h3> Social Support Network: <h3> Displays on-campus resources for specific stressors as well as the option to enter personal connections that will then be dispalyed on the screen
+<h3> Social Support Network: </h3> Displays on-campus resources for specific stressors as well as the option to enter personal connections that will then be dispalyed on the screen
   
   -[Social Support Network HTML](socialsupport.html)
 
