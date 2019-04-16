@@ -3,7 +3,7 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
 
 **In order to run the application from start to finish, begin on the Initial Screen HTML page**
 
-<h2>The following is an ordered list of the screens you will see in the project</h4>
+<h2>Ordered List of Screens</h2>
 
 <h3>Intial Landing Page</h3> Brief introduction to the project for the user
   
@@ -30,7 +30,7 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
   - [Social Support Network HTML](socialsupport.html)
 
 <br>
-<h2> Additional Resources </h4>
+<h2> Additional Resources </h2>
 
   - [Color Scheme](colorScheme.docx): Colors provided to us by Dr. Yvette Shen
 
