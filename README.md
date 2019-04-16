@@ -1,24 +1,40 @@
 Repository for the Pursuit of Happiness project lead by Dr. Yvette Shen with members Kaitlyn Davis(.5135), 
 Amanda Konet(.5) and Meghana Yechuri(.1)
 
+**In order to run the application from start to finish, begin on the Initial Screen HTML page**
 
-<h3>[Intial Landing Page](first screen.html):</h3> Brief introduction to the project for the user
+<h4>The following is an ordered list of the screens you will see in the project</h4>
 
-<h3>Stress Portrait</h3> 
+<h3>Intial Landing Page:</h3> Brief introduction to the project for the user
+
+  -[Initial Screen HTML](first screen.html)
+
+<h3>Stress Portrait:</h3> Screen where user selects their personal stressors
 
   - [Stress Portrait HTML](stress portrait.html)
   
   - [Stress Portrait JS](stress portrait.js)
+  
+<h3>Stress Portrait Selected:</h3> Screen displaying only the selected stressors
+ 
+  - [Stress Portrait Selected HTML](stress portrait selected.html)
+  
+  - [Stress Portrait Selected JS](stress portrait selected.js)
 
-stress portrait selected.html / stress portrait script.js: Selected stressors
+<h3> Stress Portait + Positive Psychology Strategies</h3>: Displays stressors user clicked on and positive psychology strategies
 
-stressportrait_circles.html: Positive psychology strategies
+  -[Stress Portait + Pos Psych Strategies HTML](stressportrait_circles.html)
 
-socialsupport.html: Social support network aspect
+<h3> Social Support Network: <h3> Displays on-campus resources for specific stressors as well as the option to enter personal connections that will then be dispalyed on the screen
+  
+  -[Social Support Network HTML](socialsupport.html)
 
-colorScheme.docx: Colors provided to us by Dr. Yvette Shen
+<br>
+<h4> Additional Resources </h4>
 
-mockups_03242019.pdf: Mockups conceptualized and designed by Dr. Yvette Shen and Shasha Yu
+  -[Color Scheme](colorScheme.docx): Colors provided to us by Dr. Yvette Shen
 
-project_evaluation: Evaluation with Dr. Yvette Shen and Shasha Yu
+  -[Mockup](mockups_03242019.pdf): Mockups conceptualized and designed by Dr. Yvette Shen and Shasha Yu
+
+  -[Project Evaluation](project_evaluation): Evaluation with Dr. Yvette Shen and Shasha Yu
 
