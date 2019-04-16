@@ -36,5 +36,5 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
 
   - [Mockup](mockups_03242019.pdf): Mockups conceptualized and designed by Dr. Yvette Shen and Shasha Yu
 
-  - [Project Evaluation](project_evaluation.txt): Evaluation with Dr. Yvette Shen and Shasha Yu
+  - [Project Evaluation](project_evaluation.txt): Evaluation with Dr. Yvette Shen and Shasha Yu 
 
