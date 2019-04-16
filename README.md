@@ -32,9 +32,9 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
 <br>
 <h2> Additional Resources </h2>
 
-  - [Color Scheme](colorScheme.docx): Colors provided to us by Dr. Yvette Shen
+  - colorScheme.docx: Colors provided to us by Dr. Yvette Shen
 
   - [Mockup](mockups_03242019.pdf): Mockups conceptualized and designed by Dr. Yvette Shen and Shasha Yu
 
-  - [Project Evaluation](project_evaluation): Evaluation with Dr. Yvette Shen and Shasha Yu
+  - [Project Evaluation](project_evaluation.txt): Evaluation with Dr. Yvette Shen and Shasha Yu
 
