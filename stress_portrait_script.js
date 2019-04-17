@@ -588,66 +588,6 @@ svg.append("text")
   .attr("y", 28)
   .text("career")
   .attr("id", "legend-text");
-//legend 5
-var legend5 = svg.append("defs");
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#ede6de").attr("transform", "translate(500,-110)" + "rotate(90)");
-//label for legend 5
-svg.append("text")
-  .attr("x", 425)
-  .attr("y", -75)
-  .text("emotional")
-  .attr("id", "legend-text");
-//label for legend 5 line 2
-svg.append("text")
-  .attr("x", 425)
-  .attr("y", -62)
-  .text("support")
-  .attr("id", "legend-text");
-//legend 6
-var legend5 = svg.append("defs");
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#eff2e2").attr("transform", "translate(600,-110)" + "rotate(90)");
-//label for legend 6
-svg.append("text")
-  .attr("x", 525)
-  .attr("y", -75)
-  .text("informational")
-  .attr("id", "legend-text");
-//label for legend 6 line 2
-svg.append("text")
-  .attr("x", 525)
-  .attr("y", -62)
-  .text("support")
-  .attr("id", "legend-text");
-//legend 7
-var legend5 = svg.append("defs");
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#e3e6e7").attr("transform", "translate(700,-110)" + "rotate(90)");
-//label for legend 7
-svg.append("text")
-  .attr("x", 625)
-  .attr("y", -75)
-  .text("instrumental")
-  .attr("id", "legend-text");
-//label for legend 7 line 2
-svg.append("text")
-  .attr("x", 625)
-  .attr("y", -62)
-  .text("support")
-  .attr("id", "legend-text");
-//legend 8
-var legend5 = svg.append("defs");
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#f9e7da").attr("transform", "translate(800,-110)" + "rotate(90)");
-//label for legend 8
-svg.append("text")
-  .attr("x", 725)
-  .attr("y", -75)
-  .text("appraisal")
-  .attr("id", "legend-text");
-//label for legend 8 line 2
-svg.append("text")
-  .attr("x", 725)
-  .attr("y", -62)
-  .text("support")
-  .attr("id", "legend-text");
 /**********************************************
 
 Function used to pass the url to the next page
