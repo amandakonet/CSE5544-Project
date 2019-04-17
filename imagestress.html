@@ -24,7 +24,7 @@
 
 #polygon-text-small {
   font-family: "Montserrat", sans-serif;
-  font-size: 9px;
+  font-size: 8px;
   color: white;
 }
 
@@ -141,8 +141,10 @@
   var x = d3.scaleLinear().range([0, 400]);
   var y = d3.scaleLinear().range([400, 0]);
   
-  x.domain([0, 50]);
-  y.domain([0, 50]);
+  x.domain([0, 55]);
+  y.domain([0, 55]);
+
+  //Array of stressors + their location on screen
   var arrayOfPolygons =  [
   {
     "name": "polygon 1",
@@ -158,8 +160,8 @@
     "ID": "Connection",
     "stressorID": "School-Social Life Balance",
     //Label properties 
-    "xlab": 88,
-    "ylab": 16,
+    "xlab": 178,
+    "ylab": 140,
     "dx": 0,
     "dy": "2em",
     "dy2": "3em"
@@ -176,8 +178,8 @@
     "ID": "Connection",
     "stressorID": "Homesickness",
     //label properties 
-    "xlab": 160,
-    "ylab": 64,
+    "xlab": 230,
+    "ylab": 180,
     "dx": -50,
     "dy": "3em"
   },{
@@ -195,8 +197,8 @@
     "ID": "Connection",
     "stressorID": "Language Barrier and Cultural Differences",
     //label properties 
-    "xlab": 40,
-    "ylab": 56,
+    "xlab": 125,
+    "ylab": 170,
     "dx": 33,
     "dy": "9em",
     "dy2": "10em",
@@ -215,8 +217,8 @@
     "stressorID": "Social Life Improvement",
     "ID": "Connection",
     //label properties 
-    "xlab": 80,
-    "ylab": 184,    
+    "xlab": 170,
+    "ylab": 290,    
     "dx": -15,
     "dy": "5em",
     "dy2": "6em"
@@ -235,8 +237,8 @@
     "ID": "Connection",
     "stressorID": "Relationship Difficulties",
     //label properties 
-    "xlab": 184,
-    "ylab": 8,    
+    "xlab": 263,
+    "ylab": 140,    
     "dx": -10,
     "dy": "4em",
     "dy2": "5em"
@@ -253,8 +255,8 @@
     "ID": "Connection",
     "stressorID" : "Extracurriculars",
     //label properties 
-    "xlab": 232,
-    "ylab": 72,    
+    "xlab": 310,
+    "ylab": 190,    
     "dx": -60,
     "dy": "7em"
   },{
@@ -271,8 +273,8 @@
     "ID": "Connection",
     "stressorID": "Loneliness",
     //label properties 
-    "xlab": 144,
-    "ylab": 136,    
+    "xlab": 225,
+    "ylab": 250,    
     "dx": -5,
     "dy": "9em"
   },{
@@ -288,8 +290,8 @@
     "ID": "Commitments",
     "stressorID": "Deadlines",
     //label properties 
-    "xlab": 160,
-    "ylab": 272,    
+    "xlab": 240,
+    "ylab": 370,    
     "dx": -20,
     "dy": "4em"
   },{
@@ -305,8 +307,8 @@
     "ID": "Commitments",
     "stressorID": "Time Management",
     //label properties 
-    "xlab": 216,
-    "ylab": 4,    
+    "xlab": 290,
+    "ylab": 130,    
     "dx": 20,
     "dy": "5em"
   },{
@@ -323,8 +325,8 @@
     "ID": "Commitments",
     "stressorID": "Academic Performance",
     //label properties 
-    "xlab": 248,
-    "ylab": 144,    
+    "xlab": 320,
+    "ylab": 250,    
     "dx": -37,
     "dy": "5em",
     "dy2": "6em"
@@ -343,8 +345,8 @@
     "ID": "Commitments",
     "stressorID": "Homework and Assignment Management",
     //label properties 
-    "xlab": 206,
-    "ylab": 192,    
+    "xlab": 295,
+    "ylab": 290,    
     "dx": -33,
     "dy": "7em",
     "dy2": "8em",
@@ -363,8 +365,8 @@
     "ID": "Commitments",
     "stressorID": "Work-Study Balance",
     //label properties 
-    "xlab": 232,
-    "ylab": 72,    
+    "xlab": 305,
+    "ylab": 195,    
     "dx": 20,
     "dy": "4em",
     "dy2": "5em"
@@ -382,8 +384,8 @@
     "ID": "Commitments",
     "stressorID": "Fear of Failure",
     //label properties 
-    "xlab": 269,
-    "ylab": 207,    
+    "xlab": 345,
+    "ylab": 305,    
     "dx": -30,
     "dy": "9em",
     "dy2": "10em"
@@ -400,8 +402,8 @@
     "ID": "Care",
     "stressorID": "Healthy Eating",
     //label properties 
-    "xlab": 248,
-    "ylab": 144,    
+    "xlab": 310,
+    "ylab": 250,    
     "dx": 30,
     "dy": "6em",
   },{
@@ -417,8 +419,8 @@
     "ID": "Care",
     "stressorID": "Illness",
     //label properties 
-    "xlab": 296,
-    "ylab": 20,    
+    "xlab": 350,
+    "ylab": 145,    
     "dx": 70,
     "dy": "1em"
   },{
@@ -435,8 +437,8 @@
     "ID": "Care",
     "stressorID": "Staying Active",
     //label properties 
-    "xlab": 305,
-    "ylab": 80,    
+    "xlab": 370,
+    "ylab": 195,    
     "dx": 6,
     "dy": "1em"
   },{
@@ -453,8 +455,8 @@
     "ID": "Care",
     "stressorID": "Difficulty Sleeping",
     //label properties 
-    "xlab": 320,
-    "ylab": 144,    
+    "xlab": 380,
+    "ylab": 260,    
     "dx": 20,
     "dy": "2em"
   },{
@@ -470,8 +472,8 @@
     "ID": "Career",
     "stressorID": "Personal Finance",
     //label properties 
-    "xlab": 288,
-    "ylab": 264,    
+    "xlab": 350,
+    "ylab": 365,    
     "dx": 25,
     "dy": "2em"
   },{
@@ -488,8 +490,8 @@
     "ID": "Career",
     "stressorID": "Public Speaking and Presentations",
     //label properties 
-    "xlab": 344,
-    "ylab": 40,    
+    "xlab": 395,
+    "ylab": 155,    
     "dx": 65,
     "dy": "8em",
     "dy2": "9em"
@@ -506,8 +508,8 @@
     "ID": "Career",
     "stressorID": "Career Anxiety",
     //label properties 
-    "xlab": 424,
-    "ylab": 168,    
+    "xlab": 480,
+    "ylab": 280,    
     "dx": -40,
     "dy": "6em"
   }
@@ -556,14 +558,16 @@ var svg = d3.select("body").append("svg")
   });
   console.log(filteredData)
 
+  var g = svg.selectAll("g")
+    .data(filteredData)
+    .enter().append("g");
 
-
-    svg.append("polygon")
+   g.append("polygon")
     .attr("class", "polygon")
-   .data(filteredData)
+    .data(filteredData)
     .attr("points",function(d) { 
         return d.points.map(function(d) {
-            return [x(d.x),y(d.y)].join(",");
+            return [x(d.x+13),y(d.y-12.3)].join(",");
         }).join(" ");
     })
     .attr("fill", function (d) {
@@ -571,37 +575,37 @@ var svg = d3.select("body").append("svg")
     //return color(d.name) });
     
     
-   svg.append("text")
+   g.append("text")
     .attr("id", "polygon-text-small")
     .data(filteredData)
-    .attr("x", function(d){return d.xlab})
-    .attr("y", function(d){return d.ylab})
-    .attr("dx", function(d){return d.dx})
-    .attr("dy", function(d){return d.dy})
+    .attr("x", function(d){return d.xlab;})
+    .attr("y", function(d){return d.ylab;})
+    .attr("dx", function(d){return (d.dx);})
+    .attr("dy", function(d){return (d.dy);})
     .attr("fill", "#ffffff")
-    .text(function(d) {return d.stressor});
+    .text(function(d) {return d.stressor;});
   
   //For shapes that need a second line of text
-   svg.append("text")
+   g.append("text")
     .attr("id", "polygon-text-small")
     .data(filteredData)
-    .attr("x", function(d){return d.xlab})
-    .attr("y", function(d){return d.ylab})
-    .attr("dx", function(d){return d.dx})
-    .attr("dy", function(d){return d.dy2})
+    .attr("x", function(d){return d.xlab;})
+    .attr("y", function(d){return d.ylab;})
+    .attr("dx", function(d){return d.dx;})
+    .attr("dy", function(d){return d.dy2;})
     .attr("fill", "#ffffff")
-    .text(function(d) {return d.stressor2}); 
+    .text(function(d) {return d.stressor2;}); 
 
     //For shapes that need a third line of text
-   svg.append("text")
+   g.append("text")
     .attr("id", "polygon-text-small")
     .data(filteredData)
-    .attr("x", function(d){return d.xlab})
-    .attr("y", function(d){return d.ylab})
-    .attr("dx", function(d){return d.dx})
-    .attr("dy", function(d){return d.dy3})
+    .attr("x", function(d){return d.xlab;})
+    .attr("y", function(d){return d.ylab;})
+    .attr("dx", function(d){return d.dx;})
+    .attr("dy", function(d){return d.dy3;})
     .attr("fill", "#ffffff")
-    .text(function(d) {return d.stressor3});
+    .text(function(d) {return d.stressor3;});
 
     
     
