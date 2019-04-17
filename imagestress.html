@@ -538,7 +538,7 @@ imageGroup.append("rect");
   var margin = {top: 100, right: 10, bottom: 10, left: 290};
     
 var svg = d3.select("body").append("svg")
-      .attr("width", 1500)
+      .attr("width", 1300)
       .attr("height", 800)
       .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
@@ -680,7 +680,7 @@ var svg = d3.select("body").append("svg")
 
 
 // -------------- Code Called to Output the Images -------------------    
-    outputImage(doctorUrl1, [550, 200],"Committing To Goals");
+    outputImage(doctorUrl1, [550, 200],"          Committing To Goals");
     outputImage(doctorUrl2, [462.13203435596427, 412.13203435596427], "Stratergies For Coping");
     outputImage(doctorUrl3, [250.00000000000003, 500], "Avoid Overthinking");
     outputImage(doctorUrl4, [37.86796564403576, 412.13203435596427], "Meditate");
@@ -702,22 +702,22 @@ var legend1 = svg.append("defs").append("svg:linearGradient").attr("id", "gradie
 legend1.append("stop").attr("offset", "0%").attr("stop-color", "#f9ccc5").attr("stop-opacity", 1);
 legend1.append("stop").attr("offset", "100%").attr("stop-color", "#ed553b").attr("stop-opacity", 1);
 //append rectangle legend to svg
-g.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(875,-10)" + "rotate(90)");
+svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(650,-80)" + "rotate(90)");
 //label for legend 1
-g.append("text")
-  .attr("x", 800)
-  .attr("y", 28)
+svg.append("text")
+  .attr("x", 575)
+  .attr("y", -50)
   .text("commitment")
   .attr("id", "legend-text");
 //legend 2
 var legend2 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient2").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend2.append("stop").attr("offset", "0%").attr("stop-color", "#fae2b3").attr("stop-opacity", 1);
 legend2.append("stop").attr("offset", "100%").attr("stop-color", "#f0a515").attr("stop-opacity", 1);
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient2)").attr("transform", "translate(975,-10)" + "rotate(90)");
+svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient2)").attr("transform", "translate(750,-80)" + "rotate(90)");
 //label for legend 2
 svg.append("text")
-  .attr("x", 900)
-  .attr("y", 28)
+  .attr("x", 675)
+  .attr("y", -50)
   .text("care")
   .attr("id", "legend-text");
 //legend 3
@@ -730,22 +730,22 @@ var legend3 = svg.append("defs").append("svg:linearGradient")
   .attr("spreadMethod", "pad");
 legend3.append("stop").attr("offset", "0%").attr("stop-color", "#bbe2e5").attr("stop-opacity", 1);
 legend3.append("stop").attr("offset", "100%").attr("stop-color", "#0894a1").attr("stop-opacity", 1);
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient3)").attr("transform", "translate(1075,-10)" + "rotate(90)");
+svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient3)").attr("transform", "translate(850,-80)" + "rotate(90)");
 //label for legend 3
 svg.append("text")
-  .attr("x", 1000)
-  .attr("y", 28)
+  .attr("x", 775)
+  .attr("y", -50)
   .text("connection")
   .attr("id", "legend-text");
 //legend 4
 var legend4 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient4").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend4.append("stop").attr("offset", "0%").attr("stop-color", "#cde8d6").attr("stop-opacity", 1);
 legend4.append("stop").attr("offset", "100%").attr("stop-color", "#47ab6c").attr("stop-opacity", 1);
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient4)").attr("transform", "translate(1175,-10)" + "rotate(90)");
+svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient4)").attr("transform", "translate(950,-80)" + "rotate(90)");
 //label for legend 4
 svg.append("text")
-  .attr("x", 1100)
-  .attr("y", 28)
+  .attr("x", 875)
+  .attr("y", -50)
   .text("career")
   .attr("id", "legend-text");
 
@@ -811,9 +811,7 @@ svg.append("text")
       parser.search = '?' + list.join('&');
       return parser.href;
   };
-          
-         
-       
     
   </script>
 </body>
+</html>
