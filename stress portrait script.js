@@ -417,8 +417,26 @@ var svg = d3.select("body").append("svg")
   }
 ];
 
-/* Create an array to store all of the values a user clicks on to pass to the next screens*/
-selectedStressors = [];
+// Create an array to store all of the values a user clicks on to pass to the next screens
+var selectedStressors = [];
+
+
+/*
+    If this is the first time on the application, there will be no data in selectedStressors
+    However, if the user hit the back button on the selected stressors page, we want 
+    to retain the information (i.e, the stressors they clicked on)
+
+    Thus, here we will fill the selectedStressors array with the stressors stored in 
+    the URL. If there are no stressors in the URL, then, we will empty selectedStressors
+    and continue normally. If there are stressors in the URL, we must then 
+*/
+var id = window.location.href.split('_');
+console.log(id);
+var len = id.length;
+for(var i =0; i < len-1; i++) {
+    //console.log(i);
+    selectedStressors[i] = id.pop().replace(/%20/g, " ");
+}
   
 /*******************************
 
@@ -443,7 +461,11 @@ selectedStressors = [];
         }).join(" ");
     })
     .attr("fill", function (d) {
-    	return d.color })
+        var color = d.color;
+        if (selectedStressors.indexOf(d.stressorID) > -1) {
+            color = "lightgrey"
+        }
+    	return color;})
     .on("click", function(d){
       d3.select(this).attr("fill", "lightgrey")
       selectedStressors.push(d.stressorID)
@@ -509,86 +531,124 @@ selectedStressors = [];
     .text(function(d) {return d.stressor3}); 
 
 
-/*******************************
-
+/*************************************************
     CREATE THE LEGENDS
-    legend numbers go from top left to bottom right
-
-********************************/
-
+  legend numbers go from top left to bottom right
+**************************************************/
 //adding legends
 //width and height of each rectangle
 var w = 120, h = 175;
-
 //legend 1
-//array of legend labels
-var legendLabels = [
-          { label: "Commitments"}, 
-          { label: "Connection"},
-          { label: "Care"},
-          { label: "Career"},
-    { label: "Emotional Support"},
-{ label: "Informational Support"},
-{ label: "Instrumental Support"},
-{ label: "Appraisal Support"}
-        ];
-
-var legend1 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
-
+var legend1 = g.append("defs").append("svg:linearGradient").attr("id", "gradient").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend1.append("stop").attr("offset", "0%").attr("stop-color", "#f9ccc5").attr("stop-opacity", 1);
-
 legend1.append("stop").attr("offset", "100%").attr("stop-color", "#ed553b").attr("stop-opacity", 1);
-
 //append rectangle legend to svg
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(500,-150)" + "rotate(90)");
-
+g.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(500,-150)" + "rotate(90)");
+//label for legend 1
+g.append("text")
+  .attr("x", 425)
+  .attr("y", -118)
+  .text("commitments")
+  .attr("id", "legend-text");
 //legend 2
 var legend2 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient2").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
-
 legend2.append("stop").attr("offset", "0%").attr("stop-color", "#fae2b3").attr("stop-opacity", 1);
-
 legend2.append("stop").attr("offset", "100%").attr("stop-color", "#f0a515").attr("stop-opacity", 1);
-
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient2)").attr("transform", "translate(600,-150)" + "rotate(90)");
-
+//label for legend 2
+svg.append("text")
+  .attr("x", 525)
+  .attr("y", -118)
+  .text("connection")
+  .attr("id", "legend-text");
 //legend 3
-var legend3 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient3").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
-
+var legend3 = svg.append("defs").append("svg:linearGradient")
+  .attr("id", "gradient3")
+  .attr("x1", "100%")
+  .attr("y1", "0%")
+  .attr("x2", "100%")
+  .attr("y2", "100%")
+  .attr("spreadMethod", "pad");
 legend3.append("stop").attr("offset", "0%").attr("stop-color", "#bbe2e5").attr("stop-opacity", 1);
-
 legend3.append("stop").attr("offset", "100%").attr("stop-color", "#0894a1").attr("stop-opacity", 1);
-
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient3)").attr("transform", "translate(700,-150)" + "rotate(90)");
-
+//label for legend 3
+svg.append("text")
+  .attr("x", 625)
+  .attr("y", -118)
+  .text("care")
+  .attr("id", "legend-text");
 //legend 4
 var legend4 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient4").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
-
 legend4.append("stop").attr("offset", "0%").attr("stop-color", "#cde8d6").attr("stop-opacity", 1);
-
 legend4.append("stop").attr("offset", "100%").attr("stop-color", "#47ab6c").attr("stop-opacity", 1);
-
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient4)").attr("transform", "translate(800,-150)" + "rotate(90)");
-
+//label for legend 4
+svg.append("text")
+  .attr("x", 725)
+  .attr("y", -118)
+  .text("career")
+  .attr("id", "legend-text");
 //legend 5
 var legend5 = svg.append("defs");
-
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#ede6de").attr("transform", "translate(500,-110)" + "rotate(90)");
-
+//label for legend 5
+svg.append("text")
+  .attr("x", 425)
+  .attr("y", -75)
+  .text("emotional")
+  .attr("id", "legend-text");
+//label for legend 5 line 2
+svg.append("text")
+  .attr("x", 425)
+  .attr("y", -62)
+  .text("support")
+  .attr("id", "legend-text");
 //legend 6
 var legend5 = svg.append("defs");
-
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#eff2e2").attr("transform", "translate(600,-110)" + "rotate(90)");
-
+//label for legend 6
+svg.append("text")
+  .attr("x", 525)
+  .attr("y", -75)
+  .text("informational")
+  .attr("id", "legend-text");
+//label for legend 6 line 2
+svg.append("text")
+  .attr("x", 525)
+  .attr("y", -62)
+  .text("support")
+  .attr("id", "legend-text");
 //legend 7
 var legend5 = svg.append("defs");
-
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#e3e6e7").attr("transform", "translate(700,-110)" + "rotate(90)");
-
+//label for legend 7
+svg.append("text")
+  .attr("x", 625)
+  .attr("y", -75)
+  .text("instrumental")
+  .attr("id", "legend-text");
+//label for legend 7 line 2
+svg.append("text")
+  .attr("x", 625)
+  .attr("y", -62)
+  .text("support")
+  .attr("id", "legend-text");
 //legend 8
 var legend5 = svg.append("defs");
-
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "#f9e7da").attr("transform", "translate(800,-110)" + "rotate(90)");
-
+//label for legend 8
+svg.append("text")
+  .attr("x", 725)
+  .attr("y", -75)
+  .text("appraisal")
+  .attr("id", "legend-text");
+//label for legend 8 line 2
+svg.append("text")
+  .attr("x", 725)
+  .attr("y", -62)
+  .text("support")
+  .attr("id", "legend-text");
 /**********************************************
 
 Function used to pass the url to the next page
