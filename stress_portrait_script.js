@@ -6,7 +6,7 @@
 
 ************************/
 var margin = {top: 10, right: 20, bottom: 10, left: 80};
-var width = 1500 - margin.left - margin.right;
+var width = 1300 - margin.left - margin.right;
 var height = 700 - margin.top - margin.bottom;
 
 // Create SVG
@@ -448,8 +448,8 @@ for(var i =0; i < len-1; i++) {
 ********************************/
 
   var g = svg.selectAll("g")
-  	.data(arrayOfPolygons)
-  	.enter().append("g");
+    .data(arrayOfPolygons)
+    .enter().append("g");
   
   g.append("polygon")
   .attr("class", "polygon")
@@ -464,7 +464,7 @@ for(var i =0; i < len-1; i++) {
         if (selectedStressors.indexOf(d.stressorID) > -1) {
             color = "lightgrey"
         }
-    	return color;})
+        return color;})
     .on("click", function(d){
       d3.select(this).attr("fill", "lightgrey")
       selectedStressors.push(d.stressorID)
@@ -542,21 +542,21 @@ var legend1 = svg.append("defs").append("svg:linearGradient").attr("id", "gradie
 legend1.append("stop").attr("offset", "0%").attr("stop-color", "#f9ccc5").attr("stop-opacity", 1);
 legend1.append("stop").attr("offset", "100%").attr("stop-color", "#ed553b").attr("stop-opacity", 1);
 //append rectangle legend to svg
-g.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(1050,-10)" + "rotate(90)");
+g.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(875,-10)" + "rotate(90)");
 //label for legend 1
 g.append("text")
-  .attr("x", 975)
+  .attr("x", 805)
   .attr("y", 28)
-  .text("commitments")
+  .text("commitment")
   .attr("id", "legend-text");
 //legend 2
 var legend2 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient2").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend2.append("stop").attr("offset", "0%").attr("stop-color", "#fae2b3").attr("stop-opacity", 1);
 legend2.append("stop").attr("offset", "100%").attr("stop-color", "#f0a515").attr("stop-opacity", 1);
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient2)").attr("transform", "translate(1150,-10)" + "rotate(90)");
+svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient2)").attr("transform", "translate(975,-10)" + "rotate(90)");
 //label for legend 2
 svg.append("text")
-  .attr("x", 1075)
+  .attr("x", 905)
   .attr("y", 28)
   .text("connection")
   .attr("id", "legend-text");
@@ -570,10 +570,10 @@ var legend3 = svg.append("defs").append("svg:linearGradient")
   .attr("spreadMethod", "pad");
 legend3.append("stop").attr("offset", "0%").attr("stop-color", "#bbe2e5").attr("stop-opacity", 1);
 legend3.append("stop").attr("offset", "100%").attr("stop-color", "#0894a1").attr("stop-opacity", 1);
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient3)").attr("transform", "translate(1250,-10)" + "rotate(90)");
+svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient3)").attr("transform", "translate(1075,-10)" + "rotate(90)");
 //label for legend 3
 svg.append("text")
-  .attr("x", 1175)
+  .attr("x", 1005)
   .attr("y", 28)
   .text("care")
   .attr("id", "legend-text");
@@ -581,10 +581,10 @@ svg.append("text")
 var legend4 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient4").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend4.append("stop").attr("offset", "0%").attr("stop-color", "#cde8d6").attr("stop-opacity", 1);
 legend4.append("stop").attr("offset", "100%").attr("stop-color", "#47ab6c").attr("stop-opacity", 1);
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient4)").attr("transform", "translate(1350,-10)" + "rotate(90)");
+svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient4)").attr("transform", "translate(1175,-10)" + "rotate(90)");
 //label for legend 4
 svg.append("text")
-  .attr("x", 1275)
+  .attr("x", 1105)
   .attr("y", 28)
   .text("career")
   .attr("id", "legend-text");
@@ -620,4 +620,3 @@ function URL_add_parameter(url, param, value){
     parser.search = '?' + list.join('&');
     return parser.href;
 };
-
