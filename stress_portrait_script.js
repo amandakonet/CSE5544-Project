@@ -493,7 +493,7 @@ for(var i =0; i < len-1; i++) {
         var array = "array";
         var stressorStr = "/";
         console.log(stressorStr);
-        location.href=URL_add_parameter("first screen.html", array, stressorStr);
+        location.href=URL_add_parameter("first_screen.html", array, stressorStr);
         console.log(location);
     });
     
