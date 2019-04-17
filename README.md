@@ -11,7 +11,7 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
 
 <h3>Stress Portrait</h3> Screen where user selects their personal stressors
 
-  - [Stress Portrait HTML](stress portrait.html)
+  - [Stress Portrait HTML](stress_portrait.html)
   
   - Stress Portrait JS (stress_portrait_script.js)
   
