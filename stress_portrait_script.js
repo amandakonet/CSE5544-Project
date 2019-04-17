@@ -483,7 +483,7 @@ for(var i =0; i < len-1; i++) {
             stressorStr += "_" + selectedStressors[i];
         }
         console.log(stressorStr);
-        location.href=URL_add_parameter("stress portrait selected.html", array, stressorStr);
+        location.href=URL_add_parameter("stress_portrait_selected.html", array, stressorStr);
         console.log(location);
     });
 
