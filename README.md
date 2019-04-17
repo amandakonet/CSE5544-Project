@@ -23,7 +23,7 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
 
 <h3> Stress Portait + Positive Psychology Strategies</h3> Displays stressors user clicked on and positive psychology strategies
 
-  - [Stress Portait + Pos Psych Strategies HTML](stressportrait_circles.html)
+  - [Stress Portait + Pos Psych Strategies HTML](imagestress.html)
 
 <h3> Social Support Network </h3> Displays on-campus resources for specific stressors as well as the option to enter personal connections that will then be dispalyed on the screen
   
