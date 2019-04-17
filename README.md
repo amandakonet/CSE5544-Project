@@ -39,4 +39,6 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
   - [Project Evaluation](project_evaluation.txt): Evaluation with Dr. Yvette Shen and Shasha Yu 
   
   - back_button.png & forward_button.png: Back and forwards buttons used on each of the screens
+  
+  - [Self Help Images](/Self_Help_Images): Pictographs provided to us for positive psychology strategies
 
