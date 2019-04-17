@@ -13,13 +13,13 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
 
   - [Stress Portrait HTML](stress portrait.html)
   
-  - Stress Portrait JS
+  - Stress Portrait JS (stress_portrait_script.js)
   
 <h3>Stress Portrait Selected</h3> Screen displaying only the selected stressors
  
   - [Stress Portrait Selected HTML](stress portrait selected.html)
   
-  - Stress Portrait Selected JS
+  - Stress Portrait Selected JS (stress_portrait_selected_script.js)
 
 <h3> Stress Portait + Positive Psychology Strategies</h3> Displays stressors user clicked on and positive psychology strategies
 
