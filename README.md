@@ -17,7 +17,7 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
   
 <h3>Stress Portrait Selected</h3> Screen displaying only the selected stressors
  
-  - [Stress Portrait Selected HTML](stress portrait selected.html)
+  - [Stress Portrait Selected HTML](stress_portrait_selected.html)
   
   - Stress Portrait Selected JS (stress_portrait_selected_script.js)
 
