@@ -4,82 +4,83 @@
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
   <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>  
-  <style>
-    body { margin:0;
-          position:center;
-          top:200;
-          right:10;
-          bottom:10;
-          left:350;
-          font-family: "Montserrat", sans-serif;
-          font-size: 14px;
-          color: #454545;
-}
-    h2 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  color: #707070;
-}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>  
 
-#polygon-text-small {
-  font-family: "Montserrat", sans-serif;
-  font-size: 8px;
-  color: white;
-}
+<style>
 
-.button {
-    width: 3em;
-    height: 1.5em;
-    border: 2px;
+  body { margin:0;
+    position:center;
+    top:200;
+    right:10;
+    bottom:10;
+    left:350;
     font-family: "Montserrat", sans-serif;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 16px;
+    font-size: 14px;
     color: #454545;
-    border-color: #707070;
-    background: #efefef;
-    border-radius: 5px;
-    position: absolute;
-    line-height: 35px;
-    margin-left: 1100px;
-    margin-top: 300px;
-    background-image: url(forward_button.png);
-    background-size: 50px 25px;
-    background-repeat: no-repeat;
-}
-
-.button-back {
-    width: 3em;
-    height: 1.5em;
-    border: 2px;
+  }
+  h2 {
     font-family: "Montserrat", sans-serif;
-    text-align: center;
-    vertical-align: middle;
     font-size: 16px;
-    color: #454545;
-    border-color: #707070;
-    background: #efefef;
-    border-radius: 5px;
-    position: absolute;
-    line-height: 35px;
-    margin-left: 40px;
-    margin-top: 300px;
-    background-image: url(back_button.png);
-    background-size: 50px 25px;
-    background-repeat: no-repeat;
-}
+    color: #707070;
+    text-align: center;
+  }
 
-    /*svg {
-      background-color: #F5FFFA;
-    }*/
-    .circle-outline {
-      fill: none;
-      stroke: #dbdbdb;
-      stroke-width: 2;
-    }
-  </style>
-  </style>
+  #polygon-text-small {
+    font-family: "Montserrat", sans-serif;
+    font-size: 8px;
+    color: white;
+  }
+
+  .button {
+      width: 3em;
+      height: 1.5em;
+      border: 2px;
+      font-family: "Montserrat", sans-serif;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 16px;
+      color: #454545;
+      border-color: #707070;
+      background: #efefef;
+      border-radius: 5px;
+      position: absolute;
+      line-height: 35px;
+      margin-left: 1100px;
+      margin-top: 300px;
+      background-image: url(forward_button.png);
+      background-size: 50px 25px;
+      background-repeat: no-repeat;
+  }
+
+  .button-back {
+      width: 3em;
+      height: 1.5em;
+      border: 2px;
+      font-family: "Montserrat", sans-serif;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 16px;
+      color: #454545;
+      border-color: #707070;
+      background: #efefef;
+      border-radius: 5px;
+      position: absolute;
+      line-height: 35px;
+      margin-left: 40px;
+      margin-top: 300px;
+      background-image: url(back_button.png);
+      background-size: 50px 25px;
+      background-repeat: no-repeat;
+  }
+
+  .circle-outline {
+    fill: none;
+    stroke: #dbdbdb;
+    stroke-width: 2;
+  }
+
+</style>
+
 </head>
 
 <body>
@@ -88,6 +89,10 @@
 <div class="button" id = "button"></div>
 <div class="button-back" id = "button-back"></div>
 
+<!--Title -->
+<h2>Phase 3: Examine Positive Psychology Strategies</h2>
+
+<!-- Rest of page -->
 <div id="canvas"></div>
   <script>
 
@@ -517,11 +522,11 @@
 
                
   // ---------- Creating SVG ---------------
-  var margin = {top: 125, right: 10, bottom: 10, left: 300};
+  var margin = {top: 100, right: 10, bottom: 10, left: 300};
     
 var svg = d3.select("body").append("svg")
       .attr("width", 1100)
-      .attr("height", 900)
+      .attr("height", 800)
       .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
 
