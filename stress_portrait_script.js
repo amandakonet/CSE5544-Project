@@ -545,7 +545,7 @@ legend1.append("stop").attr("offset", "100%").attr("stop-color", "#ed553b").attr
 g.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(875,-10)" + "rotate(90)");
 //label for legend 1
 g.append("text")
-  .attr("x", 805)
+  .attr("x", 800)
   .attr("y", 28)
   .text("commitment")
   .attr("id", "legend-text");
@@ -556,7 +556,7 @@ legend2.append("stop").attr("offset", "100%").attr("stop-color", "#f0a515").attr
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient2)").attr("transform", "translate(975,-10)" + "rotate(90)");
 //label for legend 2
 svg.append("text")
-  .attr("x", 905)
+  .attr("x", 900)
   .attr("y", 28)
   .text("connection")
   .attr("id", "legend-text");
@@ -573,7 +573,7 @@ legend3.append("stop").attr("offset", "100%").attr("stop-color", "#0894a1").attr
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient3)").attr("transform", "translate(1075,-10)" + "rotate(90)");
 //label for legend 3
 svg.append("text")
-  .attr("x", 1005)
+  .attr("x", 1000)
   .attr("y", 28)
   .text("care")
   .attr("id", "legend-text");
@@ -584,7 +584,7 @@ legend4.append("stop").attr("offset", "100%").attr("stop-color", "#47ab6c").attr
 svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient4)").attr("transform", "translate(1175,-10)" + "rotate(90)");
 //label for legend 4
 svg.append("text")
-  .attr("x", 1105)
+  .attr("x", 1100)
   .attr("y", 28)
   .text("career")
   .attr("id", "legend-text");
