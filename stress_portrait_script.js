@@ -558,7 +558,7 @@ svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", 
 svg.append("text")
   .attr("x", 900)
   .attr("y", 28)
-  .text("connection")
+  .text("care")
   .attr("id", "legend-text");
 //legend 3
 var legend3 = svg.append("defs").append("svg:linearGradient")
@@ -575,7 +575,7 @@ svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", 
 svg.append("text")
   .attr("x", 1000)
   .attr("y", 28)
-  .text("care")
+  .text("connection")
   .attr("id", "legend-text");
 //legend 4
 var legend4 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient4").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
