@@ -77,6 +77,11 @@
 </head>
 
 <body>
+
+<!-- Button classes -->
+<div class="button" id = "button"></div>
+<div class="button-back" id = "button-back"></div>
+
 <div id="canvas"></div>
   <script>
 
@@ -111,26 +116,19 @@
         .attr("clip-path", "url(#clip)")
 
         .on("mouseover", function(d){
-                                          tooltip.transition()
-                                            .style('opacity', 10)
-                                          tooltip.html( label)
-                                            .style('left',(d3.event.pageX - 15) + 'px')   //-15 :- tooltip location relative to the mouse
-                                            .style('top', (d3.event.pageY - 15) + 'px')
-                        });
+            tooltip.transition()
+            .style('opacity', 10)
+            tooltip.html( label)
+            .style('left',(d3.event.pageX - 15) + 'px')   //-15 :- tooltip location relative to the mouse
+            .style('top', (d3.event.pageY - 15) + 'px')
+        });
       // var circleOutline = imageGroup.append("circle")
       //   .attr("class", "circle-outline")
       //   .attr("cx", image.size / 2)
       //   .attr("cy", image.size / 2 )
-      //   .attr("r",  40)   ;
-
-      
+      //   .attr("r",  40)   ; 
       
     }
-    /**********************  
-
-      Set up the page 
-
-************************/
 
   
   // X and Y range + domain 
@@ -509,44 +507,50 @@
   }
 ];
 
-/* First, select on the polygons that the user has clicked on */
-
-// Get the selected stressors from window URL 
-var selectedStressorsArr = [];
-var id = window.location.href.split('_');
-console.log(id);
-var len = id.length;
-for(var i =0; i < len-1; i++) {
-    console.log(i);
-    selectedStressorsArr[i] = id.pop().replace(/%20/g, " ");
-}
-console.log(selectedStressorsArr);
-
-/*
-    Filter the data by only those polygons that were selected by the user
-*/
-filteredData = arrayOfPolygons.filter(function (d) {
-    return selectedStressorsArr.indexOf(d.stressorID) > -1;
-});
-console.log(filteredData)
-
-var ordinal = d3.scaleOrdinal()
-    .domain(["Connection", "Commitment", "Care", "Career"])
-    .range("#0894A1", "#f0a515", "#ed553b", "#47AB6C");
-       
-         
+               
   // ---------- Creating SVG ---------------
-  var margin = {top: 200, right: 10, bottom: 10, left: 350};
+  var margin = {top: 125, right: 10, bottom: 10, left: 300};
     
 var svg = d3.select("body").append("svg")
-      .attr("width", 2000)
-      .attr("height", 2000)
+      .attr("width", 1100)
+      .attr("height", 900)
       .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
 
   // var g=svg.selectAll("g")
   //            .data(filteredData)
   //        .enter();
+
+  //All possible stressors
+  var allStressors = ["School-Social Life Balance", "Homesickness", "Relationship Difficulties",
+    "Time Management", "Illness", "Staying Active", "Work-Study Balance", "Public Speaking and Presentations",
+    "Language Barrier and Cultural Differences", "Social Life Improvement", "Loneliness", "Deadlines", 
+    "Extracurriculars", "Academic Performance", "Healthy Eating", "Difficulty Sleeping", "Fear of Failure", 
+    "Career Anxiety", "Homework and Assignment Management", "Personal Finance"];
+
+  // Get the selected stressors from window URL 
+  var selectedStressorsArr = [];
+  var id = window.location.href.split('_');
+  console.log(id);
+  var len = id.length;
+  for(var i =0; i < len-1; i++) {
+    var current = id.pop().replace(/%20/g, " ");
+    //If the current stressor is NOT already in the list and it is a stressor, add it 
+    if (selectedStressorsArr.indexOf(current) <= -1 && allStressors.indexOf(current) > -1) {
+        selectedStressorsArr[i] = current;
+    }
+  }
+  console.log(selectedStressorsArr);
+
+  /*
+      Filter the data by only those polygons that were selected by the user
+  */
+  filteredData = arrayOfPolygons.filter(function (d) {
+      return selectedStressorsArr.indexOf(d.stressorID) > -1;
+  });
+  console.log(filteredData)
+
+
 
     svg.append("polygon")
     .attr("class", "polygon")
@@ -634,22 +638,17 @@ var svg = d3.select("body").append("svg")
     // feMergeGlow.append("feMergeNode")
     //   .attr("in","SourceGraphic");
    
-   
-
-
-
-
       
        
   // -----------------  Image URL's Harcoded-------------------
-    var doctorUrl1 = "file:///Users/meghana/Downloads/drive-download-20190405T021805Z-001/Commitingtogoals.png",
-        doctorUrl2 = "file:///Users/meghana/Downloads/drive-download-20190405T021805Z-001/Stratergiesforcoping.png",
-        doctorUrl3 = "file:///Users/meghana/Downloads/drive-download-20190405T021805Z-001/Avoidoverthinking.png",
-        doctorUrl4 = "file:///Users/meghana/Downloads/drive-download-20190405T021805Z-001/Meditate.jpg",
-        doctorUrl5 ="file:///Users/meghana/Downloads/drive-download-20190405T021805Z-001/SelfCare.png",
-        doctorUrl6 = "/Users/meghana/Downloads/drive-download-20190405T021805Z-001/PhysicalActivity.png",
-        doctorUrl7 = "file:///Users/meghana/Downloads/drive-download-20190405T021805Z-001/ActsofKindness.png",
-        doctorUrl8="file:///Users/meghana/Downloads/drive-download-20190405T021805Z-001/ExpressingGratitude.png";
+    var doctorUrl1 = "Self_Help_Images/Commitingtogoals.png",
+        doctorUrl2 = "Self_Help_Images/Stratergiesforcoping.png",
+        doctorUrl3 = "Self_Help_Images/Avoidoverthinking.png",
+        doctorUrl4 = "Self_Help_Images/Meditate.jpg",
+        doctorUrl5 = "Self_Help_Images/SelfCare.png",
+        doctorUrl6 = "Self_Help_Images/PhysicalActivity.png",
+        doctorUrl7 = "Self_Help_Images/ActsofKindness.png",
+        doctorUrl8 = "Self_Help_Images/ExpressingGratitude.png";
 
 
 // -------------- Code Called to Output the Images -------------------    
@@ -662,8 +661,7 @@ var svg = d3.select("body").append("svg")
     outputImage(doctorUrl7, [249.99999999999994, -100],"Acts of Kindness");
     outputImage(doctorUrl8, [462.13203435596427, -12.132034355964294],"Expressing Gratitude");
    
-    
- 
+  
 
 
     /************************************************
@@ -672,30 +670,33 @@ var svg = d3.select("body").append("svg")
 
     *************************************************/
 
+     // Add button variables
+    var button = document.getElementById("button");
+    
+console.log(button);
+ button.addEventListener('click', function() {
+     var array = "array";
+     var stressorStr = "/";
+     for (i in selectedStressorsArr) {
+         stressorStr += "_" + selectedStressorsArr[i];
+     }
+     console.log(stressorStr);
+     location.href=URL_add_parameter("socialsupport.html", array, stressorStr);
+     console.log(location);
+ });
 
-//console.log(button);
-// button.addEventListener('click', function() {
-//     var array = "array";
-//     var stressorStr = "/";
-//     for (i in selectedStressorsArr) {
-//         stressorStr += "_" + selectedStressorsArr[i];
-//     }
-//     console.log(stressorStr);
-//     location.href=URL_add_parameter("socialsupport.html", array, stressorStr);
-//     console.log(location);
-// });
-
-// console.log(buttonBack)
-// buttonBack.addEventListener('click', function() {
-//     var array = "array";
-//     var stressorStr = "/";
-//     for (i in selectedStressorsArr) {
-//         stressorStr += "_" + selectedStressorsArr[i];
-//     }
-//     //console.log(stressorStr);
-//     location.href=URL_add_parameter("stress portrait selected.html", array, stressorStr);
-//     console.log(location);
-// });
+ var buttonBack = document.getElementById("button-back");
+ console.log(buttonBack)
+ buttonBack.addEventListener('click', function() {
+     var array = "array";
+     var stressorStr = "/";
+     for (i in selectedStressorsArr) {
+         stressorStr += "_" + selectedStressorsArr[i];
+     }
+     //console.log(stressorStr);
+     location.href=URL_add_parameter("stress_portrait_selected.html", array, stressorStr);
+     console.log(location);
+ });
 
 
           
