@@ -7,7 +7,7 @@ Amanda Konet(.5) and Meghana Yechuri(.1)
 
 <h3>Intial Landing Page</h3> Brief introduction to the project for the user
   
-  - [Initial Screen HTML](first screen.html)
+  - [Initial Screen HTML](first_screen.html)
 
 <h3>Stress Portrait</h3> Screen where user selects their personal stressors
 
