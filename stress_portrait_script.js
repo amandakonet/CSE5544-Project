@@ -6,7 +6,7 @@
 
 ************************/
 var margin = {top: 10, right: 20, bottom: 10, left: 80};
-var width = 1000 - margin.left - margin.right;
+var width = 1500 - margin.left - margin.right;
 var height = 700 - margin.top - margin.bottom;
 
 // Create SVG
@@ -538,26 +538,26 @@ for(var i =0; i < len-1; i++) {
 //width and height of each rectangle
 var w = 120, h = 175;
 //legend 1
-var legend1 = g.append("defs").append("svg:linearGradient").attr("id", "gradient").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
+var legend1 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend1.append("stop").attr("offset", "0%").attr("stop-color", "#f9ccc5").attr("stop-opacity", 1);
 legend1.append("stop").attr("offset", "100%").attr("stop-color", "#ed553b").attr("stop-opacity", 1);
 //append rectangle legend to svg
-g.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(500,-150)" + "rotate(90)");
+g.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(1050,-10)" + "rotate(90)");
 //label for legend 1
 g.append("text")
-  .attr("x", 425)
-  .attr("y", -118)
+  .attr("x", 975)
+  .attr("y", 28)
   .text("commitments")
   .attr("id", "legend-text");
 //legend 2
 var legend2 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient2").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend2.append("stop").attr("offset", "0%").attr("stop-color", "#fae2b3").attr("stop-opacity", 1);
 legend2.append("stop").attr("offset", "100%").attr("stop-color", "#f0a515").attr("stop-opacity", 1);
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient2)").attr("transform", "translate(600,-150)" + "rotate(90)");
+svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient2)").attr("transform", "translate(1150,-10)" + "rotate(90)");
 //label for legend 2
 svg.append("text")
-  .attr("x", 525)
-  .attr("y", -118)
+  .attr("x", 1075)
+  .attr("y", 28)
   .text("connection")
   .attr("id", "legend-text");
 //legend 3
@@ -570,22 +570,22 @@ var legend3 = svg.append("defs").append("svg:linearGradient")
   .attr("spreadMethod", "pad");
 legend3.append("stop").attr("offset", "0%").attr("stop-color", "#bbe2e5").attr("stop-opacity", 1);
 legend3.append("stop").attr("offset", "100%").attr("stop-color", "#0894a1").attr("stop-opacity", 1);
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient3)").attr("transform", "translate(700,-150)" + "rotate(90)");
+svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient3)").attr("transform", "translate(1250,-10)" + "rotate(90)");
 //label for legend 3
 svg.append("text")
-  .attr("x", 625)
-  .attr("y", -118)
+  .attr("x", 1175)
+  .attr("y", 28)
   .text("care")
   .attr("id", "legend-text");
 //legend 4
 var legend4 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient4").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 legend4.append("stop").attr("offset", "0%").attr("stop-color", "#cde8d6").attr("stop-opacity", 1);
 legend4.append("stop").attr("offset", "100%").attr("stop-color", "#47ab6c").attr("stop-opacity", 1);
-svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient4)").attr("transform", "translate(800,-150)" + "rotate(90)");
+svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient4)").attr("transform", "translate(1350,-10)" + "rotate(90)");
 //label for legend 4
 svg.append("text")
-  .attr("x", 725)
-  .attr("y", -118)
+  .attr("x", 1275)
+  .attr("y", 28)
   .text("career")
   .attr("id", "legend-text");
 //legend 5
