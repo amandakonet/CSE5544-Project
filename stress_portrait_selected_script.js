@@ -539,7 +539,7 @@ button.addEventListener('click', function() {
         stressorStr += "_" + selectedStressorsArr[i];
     }
     //console.log(stressorStr);
-    location.href=URL_add_parameter("pos_psych.html", array, stressorStr);
+    location.href=URL_add_parameter("imagestress.html", array, stressorStr);
     //console.log(location);
 });
 
