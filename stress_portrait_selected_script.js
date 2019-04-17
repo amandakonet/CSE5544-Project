@@ -542,7 +542,7 @@ buttonBack.addEventListener('click', function() {
         stressorStr += "_" + selectedStressorsArr[i];
     }
     //console.log(stressorStr);
-    location.href=URL_add_parameter("stress portrait.html", array, stressorStr);
+    location.href=URL_add_parameter("stress_portrait.html", array, stressorStr);
     console.log(location);
 });
 
