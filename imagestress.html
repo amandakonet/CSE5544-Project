@@ -125,11 +125,16 @@
         .attr("height", image.size)
         .attr("width", image.size)
         .attr("clip-path", "url(#clip)");
-var imageElem = imageGroup.append("image")
-        .attr("xlink:href", url)
-        .attr("height", image.size)
-        .attr("width", image.size)
-        .attr("clip-path", "url(#clip)");
+imageGroup.append("rect");
+        imageGroup.append("text")
+                                  .attr("x",35)
+                                  .attr("y",-5)
+                                  .attr("width",20)
+                                  .attr("height",20)
+                                  .text(label)
+                                  //.attr("fill", "#FFF")
+                                  .style("fill","black")
+    .attr("text-anchor", "middle");
 //         .on("mouseover", function(d){
 //             tooltip.transition()
 //             .style('opacity', 10)
