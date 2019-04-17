@@ -24,9 +24,15 @@ h2 {
   color: white;
 }
 
+#legend-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  color: #707070;  
+}
+
 .button {
-    width: 6em;
-    height: 2em;
+    width: 3em;
+    height: 1.5em;
     border: 2px;
     font-family: "Montserrat", sans-serif;
     text-align: center;
@@ -38,13 +44,16 @@ h2 {
     border-radius: 5px;
     position: absolute;
     line-height: 35px;
-    margin-left: 1000px;
-    margin-top: 600px;
+    margin-left: 1100px;
+    margin-top: 300px;
+    background-image: url(forward_button.png);
+    background-size: 50px 25px;
+    background-repeat: no-repeat;
 }
 
 .button-back {
-    width: 6em;
-    height: 2em;
+    width: 3em;
+    height: 1.5em;
     border: 2px;
     font-family: "Montserrat", sans-serif;
     text-align: center;
@@ -57,7 +66,10 @@ h2 {
     position: absolute;
     line-height: 35px;
     margin-left: 40px;
-    margin-top: 600px;
+    margin-top: 300px;
+    background-image: url(back_button.png);
+    background-size: 50px 25px;
+    background-repeat: no-repeat;
 }
 
 </style>
@@ -66,16 +78,18 @@ h2 {
 
   <h2> <center>Phase 1: Click on any stressors you may be feeling: </center> </h2>
 
-  <div class="button" id = "button">Next</div>
-  <div class="button-back" id = "button-back">Back</div>
+  <div class="button" id = "button"></div>
+  <div class="button-back" id = "button-back"></div>
 
-<!-- load the d3.js and legend libraries -->    	
+<!-- load the d3.js library -->    
+<script src="https://d3js.org/d3.v3.min.js"></script> 
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
+
+<!-- load jquery library --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <!-- stress portrait code -->
-<script type="text/javascript" src="stress_portrait_script.js"></script>
+<script type="text/javascript" src="stress portrait script.js"></script>
 
 
 
