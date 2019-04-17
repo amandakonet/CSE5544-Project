@@ -427,8 +427,7 @@ var selectedStressors = [];
     to retain the information (i.e, the stressors they clicked on)
 
     Thus, here we will fill the selectedStressors array with the stressors stored in 
-    the URL. If there are no stressors in the URL, then, we will empty selectedStressors
-    and continue normally. If there are stressors in the URL, we must then 
+    the URL. If there are stressors in the URL, add them to selectedStressors
 */
 var id = window.location.href.split('_');
 console.log(id);
