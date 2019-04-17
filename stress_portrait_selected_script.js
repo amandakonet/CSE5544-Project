@@ -416,6 +416,12 @@ var svg = d3.select("body").append("svg")
     "dy": "7em"
   }
 ];
+
+var allStressors = ["School-Social Life Balance", "Homesickness", "Relationship Difficulties",
+"Time Management", "Illness", "Staying Active", "Work-Study Balance", "Public Speaking and Presentations",
+"Language Barrier and Cultural Differences", "Social Life Improvement", "Loneliness", "Deadlines", 
+"Extracurriculars", "Academic Performance", "Healthy Eating", "Difficulty Sleeping", "Fear of Failure", 
+"Career Anxiety", "Homework and Assignment Management", "Personal Finance"];
   
 /*******************************
 
@@ -434,7 +440,11 @@ console.log(id);
 var len = id.length;
 for(var i =0; i < len-1; i++) {
     //console.log(i);
-    selectedStressorsArr[i] = id.pop().replace(/%20/g, " ");
+    var current = id.pop().replace(/%20/g, " ");
+    //If the current stressor is NOT already in the list and it is a stressor, add it 
+    if (selectedStressorsArr.indexOf(current) <= -1 && allStressors.indexOf(current) > -1) {
+        selectedStressorsArr[i] = current;
+    }
 }
 console.log(selectedStressorsArr);
 
@@ -529,7 +539,7 @@ button.addEventListener('click', function() {
         stressorStr += "_" + selectedStressorsArr[i];
     }
     //console.log(stressorStr);
-    location.href=URL_add_parameter("stressportrait_circles.html", array, stressorStr);
+    location.href=URL_add_parameter("pos_psych.html", array, stressorStr);
     //console.log(location);
 });
 
