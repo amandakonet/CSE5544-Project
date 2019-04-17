@@ -683,13 +683,24 @@ svg.append("text")
 
 ********************************/
 
+ //All possible stressors
+var allStressors = ["School-Social Life Balance", "Homesickness", "Relationship Difficulties",
+  "Time Management", "Illness", "Staying Active", "Work-Study Balance", "Public Speaking and Presentations",
+  "Language Barrier and Cultural Differences", "Social Life Improvement", "Loneliness", "Deadlines", 
+  "Extracurriculars", "Academic Performance", "Healthy Eating", "Difficulty Sleeping", "Fear of Failure", 
+  "Career Anxiety", "Homework and Assignment Management", "Personal Finance"];
+
 var selectedStressorsArr = [];
 var id = window.location.href.split('_');
 //console.log(id);
 var len = id.length;
 for(var i =0; i < len-1; i++) {
     //console.log(i);
-    selectedStressorsArr[i] = id.pop().replace(/%20/g, " ");
+    var current = id.pop().replace(/%20/g, " ");
+    //If the current stressor is NOT already in the list and it is a stressor, add it 
+    if (selectedStressorsArr.indexOf(current) <= -1 && allStressors.indexOf(current) > -1) {
+        selectedStressorsArr[i] = current;
+    }
 }
 //console.log(selectedStressorsArr);
 buttonBack.addEventListener('click', function() {
@@ -1136,7 +1147,7 @@ var arrayOfResources = [
 "dx" : -30,
 "dy" : "3em"
 }, {
-"name" : "Your Academic College's Career Services",
+"name" : "Academic College's Career Services",
   "color" : "#47ab6c", 
   "support": "Instrumental", 
   "category" : "career", 
@@ -1207,7 +1218,7 @@ var arrayOfResources = [
 "name" : "DTix",
   "color" : "#f0a515", 
   "support": "Instrumental", 
-  "category" : "connection", 
+  "category" : "career", 
   "stressor" : "Social Life Improvement",
   "site" : "https://activities.osu.edu/programs/dtix",
   "description" : "Get discounted tickets to concerts, festivals, performances, sporting events and more at the DTix desk in the Ohio Union.",
@@ -1224,7 +1235,7 @@ var arrayOfResources = [
 "name" : "DTix",
   "color" : "#f0a515", 
   "support": "Instrumental", 
-  "category" : "connection", 
+  "category" : "career", 
   "stressor" : "Extracurriculars",
   "site" : "https://activities.osu.edu/programs/dtix",
   "description" : "Get discounted tickets to concerts, festivals, performances, sporting events and more at the DTix desk in the Ohio Union.",
@@ -1243,23 +1254,6 @@ var arrayOfResources = [
   "support": "Instrumental", 
   "category" : "career", 
   "stressor" : "Career Anxiety",
-  "site" : "https://oia.osu.edu/",
-  "description" : "Research education abroad opportunities, access resources for immigration, employment, global engagement and more, or make an appointment with an immigration coordinator.",
-  "x" : -424, 
-"y" : 95,
-"hgt" : 20,
-"wid" : 155,
-//label properties
-"xlab" : -387,
-"ylab" : 75,
-"dx" : -30,
-"dy" : "3em"
-}, {
-"name" : "Office of International Affairs",
-  "color" : "#47ab6c", 
-  "support": "Instrumental", 
-  "category" : "career", 
-  "stressor" : "Language Barrier & Cultural Differences",
   "site" : "https://oia.osu.edu/",
   "description" : "Research education abroad opportunities, access resources for immigration, employment, global engagement and more, or make an appointment with an immigration coordinator.",
   "x" : -424, 
@@ -1306,6 +1300,23 @@ var arrayOfResources = [
 "dx" : -30,
 "dy" : "3em"
 },{
+"name" : "International Friendships",
+  "color" : "#f0a515", 
+  "support": "Emotional", 
+  "category" : "connection", 
+  "stressor" : "Homesickness",
+  "site" : "https://ohiostate.ifiusa.org/",
+  "description" : "A community organization that works in partnership with universities and Christian volunteers to promote friendship and hospitality for international students, scholars and family members. It also partners with internationals through on-campus student organizations.",
+  "x" : -500, 
+"y" : 325,
+"hgt" : 20,
+"wid" : 140,
+//label properties
+"xlab" : -462,
+"ylab" : 305,
+"dx" : -30,
+"dy" : "3em"
+}, {
 "name" : "Wellness Coaching",
   "color" : "#f0a515", 
   "support": "Appraisal", 
@@ -1345,40 +1356,6 @@ var arrayOfResources = [
   "support": "Appraisal", 
   "category" : "connection", 
   "stressor" : "Time Management",
-  "site" : "https://swc.osu.edu/services/wellness-coaching/",
-  "description" : "A free service that provides opportunities for you to gain awareness regarding your capacity to create the life you want to live, both now and in the future.  Wellness coaches take a positive approach to personal development, focusing on your strengths and using the Nine Dimensions of Wellness model as a framework for generating goals that are meaningful for you.",
-  "x" : -460, 
-"y" : 420,
-"hgt" : 20,
-"wid" : 108,
-//label properties
-"xlab" : -425,
-"ylab" : 400,
-"dx" : -30,
-"dy" : "3em"
-}, {
-  "name" : "Wellness Coaching",
-  "color" : "#ed553b", 
-  "support": "Appraisal", 
-  "category" : "commitments", 
-  "stressor" : "Fear of Failure",
-  "site" : "https://swc.osu.edu/services/wellness-coaching/",
-  "description" : "A free service that provides opportunities for you to gain awareness regarding your capacity to create the life you want to live, both now and in the future.  Wellness coaches take a positive approach to personal development, focusing on your strengths and using the Nine Dimensions of Wellness model as a framework for generating goals that are meaningful for you.",
-  "x" : -460, 
-"y" : 420,
-"hgt" : 20,
-"wid" : 108,
-//label properties
-"xlab" : -425,
-"ylab" : 400,
-"dx" : -30,
-"dy" : "3em"
-}, {
-  "name" : "Wellness Coaching",
-  "color" : "#ed553b", 
-  "support": "Emotional", 
-  "category" : "commitments", 
-  "stressor" : "School-Social Life Balance",
   "site" : "https://swc.osu.edu/services/wellness-coaching/",
   "description" : "A free service that provides opportunities for you to gain awareness regarding your capacity to create the life you want to live, both now and in the future.  Wellness coaches take a positive approach to personal development, focusing on your strengths and using the Nine Dimensions of Wellness model as a framework for generating goals that are meaningful for you.",
   "x" : -460, 
@@ -1816,45 +1793,11 @@ var arrayOfResources = [
 "dx" : -30,
 "dy" : "3em"
 }, {
-  "name" : "Math and Statistics Learning Center",
-  "color" : "#ed553b", 
-  "support": "Instrumental", 
-  "category" : "commitments", 
-  "stressor" : "Homework & Assignment Management",
-  "site" : "https://mslc.osu.edu/",
-  "description" : "Provides free support to students of many undergraduate Mathematics and Statistics courses at The Ohio State University. We provide trained tutors available to help students with difficulties they are experiencing in class or with homework. In addition, we provide online resources, practice exams and workshops to help students achieve their potential as a student.",
-"x" : -198, 
-"y" : 350,
-"hgt" : 20,
-"wid" : 193,
-//label properties
-"xlab" : -162,
-"ylab" : 330,
-"dx" : -30,
-"dy" : "3em"
-}, {
 "name" : "Writing Center",
   "color" : "#ed553b", 
   "support": "Instrumental", 
   "category" : "commitments", 
   "stressor" : "Academic Performance",
-  "site" : "https://cstw.osu.edu/writing-center",
-  "description" : "The Writing Center offers free help with writing at any stage of the writing process for any member of the university community. We also maintain a Writing Resources page with writing handouts and links to online resources",
-"x" : -185, 
-"y" : 270,
-"hgt" : 20,
-"wid" : 83,
-//label properties
-"xlab" : -150,
-"ylab" : 250,
-"dx" : -30,
-"dy" : "3em"
-},{ 
-  "name" : "Writing Center",
-  "color" : "#ed553b", 
-  "support": "Instrumental", 
-  "category" : "commitments", 
-  "stressor" : "Homework & Assignment Management",
   "site" : "https://cstw.osu.edu/writing-center",
   "description" : "The Writing Center offers free help with writing at any stage of the writing process for any member of the university community. We also maintain a Writing Resources page with writing handouts and links to online resources",
 "x" : -185, 
@@ -1923,23 +1866,6 @@ var arrayOfResources = [
   "support": "Instrumental", 
   "category" : "commitments", 
   "stressor" : "Academic Performance",
-  "site" : "http://younkinsuccess.osu.edu/tutoring/",
-  "description" : "In partnership with Residence Life Tutoring Services, free peer tutoring is held in the Younkin Success Center Autumn and Spring semesters. All tutoring is free, and provided by certified peer tutors in the following subjects:  Mathematics, Physics, and Chemistry",
-"x" : -243, 
-"y" : 294,
-"hgt" : 20,
-"wid" : 143,
-//label properties
-"xlab" : -207,
-"ylab" : 275,
-"dx" : -30,
-"dy" : "3em"
-},{
-"name" : "Younkin Tutoring Services",
-  "color" : "#ed553b", 
-  "support": "Instrumental", 
-  "category" : "commitments", 
-  "stressor" : "Homework & Assignment Management",
   "site" : "http://younkinsuccess.osu.edu/tutoring/",
   "description" : "In partnership with Residence Life Tutoring Services, free peer tutoring is held in the Younkin Success Center Autumn and Spring semesters. All tutoring is free, and provided by certified peer tutors in the following subjects:  Mathematics, Physics, and Chemistry",
 "x" : -243, 
