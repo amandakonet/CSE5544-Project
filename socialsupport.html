@@ -211,7 +211,7 @@ axis text {
 
 <body>
 
-<h2> <center> Your Social Support Network: </center> </h2>
+<h2> <center> Phase 3: Your Social Support Network </center> </h2>
 
 <div class="button-back" id = "button-back"></div>
 
@@ -743,7 +743,7 @@ svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", 
 svg.append("text")
   .attr("x", 525)
   .attr("y", -118)
-  .text("connection")
+  .text("care")
   .attr("id", "legend-text");
 //legend 3
 var legend3 = svg.append("defs").append("svg:linearGradient")
@@ -760,7 +760,7 @@ svg.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", 
 svg.append("text")
   .attr("x", 625)
   .attr("y", -118)
-  .text("care")
+  .text("connection")
   .attr("id", "legend-text");
 //legend 4
 var legend4 = svg.append("defs").append("svg:linearGradient").attr("id", "gradient4").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
@@ -881,7 +881,7 @@ Array for setting up  the link objects.
     x and y: points where shapes are located on the screen
 
     color: the color to be used (hue chosen by category)
-    (#47ab6c = green (career), #f0a515 = yellow (connection), #0894a1 = blue (care), #ed553b = red (commitments))
+    (#47ab6c = green (career), #f0a515 = yellow (care), #0894a1 = blue (connection), #ed553b = red (commitments))
 
     resource-: resource + some number; used to print the text on the object, more than one of these indicates the stressor is printed on multiple lines
     category: category the resource belongs to (commitments, connection, care, career)
@@ -995,7 +995,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Counseling and Consultation Services",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Emotional", 
   "category" : "connection", 
   "stressor" : "Loneliness",
@@ -1012,7 +1012,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Counseling and Consultation Services",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Emotional", 
   "category" : "connection", 
   "stressor" : "Homesickness",
@@ -1029,7 +1029,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Counseling and Consultation Services",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Emotional", 
   "category" : "connection", 
   "stressor" : "Social Life Improvement",
@@ -1046,7 +1046,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Counseling and Consultation Services",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Emotional", 
   "category" : "connection", 
   "stressor" : "Relationship Difficulties",
@@ -1267,7 +1267,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "International Friendships",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Emotional", 
   "category" : "connection", 
   "stressor" : "Loneliness",
@@ -1284,7 +1284,7 @@ var arrayOfResources = [
 "dy" : "3em"
 },{
 "name" : "International Friendships",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Emotional", 
   "category" : "connection", 
   "stressor" : "Homesickness",
@@ -1301,7 +1301,7 @@ var arrayOfResources = [
 "dy" : "3em"
 },{
 "name" : "International Friendships",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Emotional", 
   "category" : "connection", 
   "stressor" : "Homesickness",
@@ -1318,7 +1318,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Wellness Coaching",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Appraisal", 
   "category" : "connection", 
   "stressor" : "Social Life Improvement",
@@ -1335,7 +1335,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Wellness Coaching",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Appraisal", 
   "category" : "connection", 
   "stressor" : "Relationship Difficulties",
@@ -1352,7 +1352,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Wellness Coaching",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Appraisal", 
   "category" : "connection", 
   "stressor" : "Time Management",
@@ -1369,7 +1369,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Student Involvement Fair",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Informational", 
   "category" : "connection", 
   "stressor" : "Social Life Improvement",
@@ -1386,7 +1386,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Student Involvement Fair",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Informational", 
   "category" : "connection", 
   "stressor" : "Extracurriculars",
@@ -1403,7 +1403,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Intramural Sports",
-  "color" : "#f0a515", 
+  "color" : "#0894a1", 
   "support": "Instrumental", 
   "category" : "connection", 
   "stressor" : "Extracurriculars",
@@ -1420,7 +1420,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "OSU Dining Facilities",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Healthy Eating",
@@ -1437,7 +1437,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Nutrition Coaching",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Appraisal", 
   "category" : "care", 
   "stressor" : "Healthy Eating",
@@ -1454,7 +1454,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Wilce Student Health Center",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Illness",
@@ -1471,7 +1471,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Wilce Student Health Center",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Difficulty Sleeping",
@@ -1488,7 +1488,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "CVS Clinic",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Illness",
@@ -1505,7 +1505,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Wexner Medical Center",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Illness",
@@ -1522,7 +1522,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Martha Morehouse Outpatient Care",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Illness",
@@ -1539,7 +1539,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "RPAC",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Staying Active",
@@ -1556,7 +1556,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "JO North",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Staying Active",
@@ -1573,7 +1573,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "JO South",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Staying Active",
@@ -1590,7 +1590,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "North Recreation Center",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Staying Active",
@@ -1607,7 +1607,7 @@ var arrayOfResources = [
 "dy" : "3em"
 }, {
 "name" : "Adventure Recreation Center",
-  "color" : "#0894a1", 
+  "color" : "#f0a515", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Staying Active",
@@ -1896,6 +1896,7 @@ var g = svg.selectAll("g")
     .data(filtered)
     .enter().append("g");
 
+//object containing link to resource and hover over description
 g.append("a")
     .attr("class", "rect")
     .data(filtered)
@@ -1905,7 +1906,7 @@ g.append("a")
     .attr("y", function(d) {return d.y;})
     .attr("height", function(d) {return d.hgt;})
     .attr("width", function(d) {return d.wid;})
-    .style("fill", function (d) {return d.color;})
+    .style("fill", "lightgray")
     .style("opacity", 0.8)
     .attr("rx", 10)
     .attr("ry", 10)
@@ -1917,6 +1918,20 @@ g.append("a")
       .on('mouseout', function(d) { tooltip.transition()
         .style('opacity', 0)});
 
+//shapes colored corresponding to stressor category
+g.append("a")
+    .attr("class", "rect")
+    .data(filtered)
+    .append("rect") 
+    .attr("x", function(d) {return d.x -15;})
+    .attr("y", function(d) {return d.y + 3;})
+    .attr("height", 15)
+    .attr("width", 15)
+    .style("fill", function (d) {return d.color;})
+    .style("opacity", 0.8)
+    .attr("rx", 10)
+    .attr("ry", 10);      
+
 g.append("text")
     .attr("id", "resource-text")
     .data(filtered)
@@ -1925,7 +1940,7 @@ g.append("text")
     .attr("dx", function(d){return d.dx})
     .attr("dy", function(d){return d.dy})    
     .attr("fill", "#454545")
-    .text(function(d) {return d.name;});
+    .text(function(d) {return d.name;});   
 
 /********************************************
 
