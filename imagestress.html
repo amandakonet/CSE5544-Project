@@ -29,8 +29,8 @@
 }
 
 .button {
-    width: 6em;
-    height: 2em;
+    width: 3em;
+    height: 1.5em;
     border: 2px;
     font-family: "Montserrat", sans-serif;
     text-align: center;
@@ -42,13 +42,16 @@
     border-radius: 5px;
     position: absolute;
     line-height: 35px;
-    margin-left: 1050px;
-    margin-top: -150px;
+    margin-left: 1100px;
+    margin-top: 300px;
+    background-image: url(forward_button.png);
+    background-size: 50px 25px;
+    background-repeat: no-repeat;
 }
 
 .button-back {
-    width: 6em;
-    height: 2em;
+    width: 3em;
+    height: 1.5em;
     border: 2px;
     font-family: "Montserrat", sans-serif;
     text-align: center;
@@ -61,7 +64,10 @@
     position: absolute;
     line-height: 35px;
     margin-left: 40px;
-    margin-top: -150px;
+    margin-top: 300px;
+    background-image: url(back_button.png);
+    background-size: 50px 25px;
+    background-repeat: no-repeat;
 }
 
     /*svg {
@@ -664,41 +670,65 @@ var svg = d3.select("body").append("svg")
   
 
 
-    /************************************************
+      /************************************************
 
-        Setup for passing the button to the next page
+          Setup for passing the button to the next page
 
-    *************************************************/
+      *************************************************/
 
-     // Add button variables
-    var button = document.getElementById("button");
-    
-console.log(button);
- button.addEventListener('click', function() {
-     var array = "array";
-     var stressorStr = "/";
-     for (i in selectedStressorsArr) {
-         stressorStr += "_" + selectedStressorsArr[i];
-     }
-     console.log(stressorStr);
-     location.href=URL_add_parameter("socialsupport.html", array, stressorStr);
-     console.log(location);
- });
+   // Add button variables
+   var button = document.getElementById("button");   
+   console.log(button);
+   button.addEventListener('click', function() {
+       var array = "array";
+       var stressorStr = "/";
+       for (i in selectedStressorsArr) {
+           stressorStr += "_" + selectedStressorsArr[i];
+       }
+       console.log(stressorStr);
+       location.href=URL_add_parameter("socialsupport.html", array, stressorStr);
+       console.log(location);
+   });
 
- var buttonBack = document.getElementById("button-back");
- console.log(buttonBack)
- buttonBack.addEventListener('click', function() {
-     var array = "array";
-     var stressorStr = "/";
-     for (i in selectedStressorsArr) {
-         stressorStr += "_" + selectedStressorsArr[i];
-     }
-     //console.log(stressorStr);
-     location.href=URL_add_parameter("stress_portrait_selected.html", array, stressorStr);
-     console.log(location);
- });
+   var buttonBack = document.getElementById("button-back");
+   console.log(buttonBack)
+   buttonBack.addEventListener('click', function() {
+       var array = "array";
+       var stressorStr = "/";
+       for (i in selectedStressorsArr) {
+           stressorStr += "_" + selectedStressorsArr[i];
+       }
+       //console.log(stressorStr);
+       location.href=URL_add_parameter("stress_portrait_selected.html", array, stressorStr);
+       console.log(location);
+   });
 
+  function URL_add_parameter(url, param, value){
+      var hash       = {};
+      var parser     = document.createElement('a');
 
+      parser.href    = url;
+
+      var parameters = parser.search.split(/\?|&/);
+
+      for(var i=0; i < parameters.length; i++) {
+          if(!parameters[i])
+              continue;
+
+          var ary      = parameters[i].split('=');
+          hash[ary[0]] = ary[1];
+      }
+
+      hash[param] = value;
+
+      var list = [];  
+      Object.keys(hash).forEach(function (key) {
+          list.push(key + '=' + hash[key]);
+      });
+
+      parser.search = '?' + list.join('&');
+      return parser.href;
+  };
           
          
        
