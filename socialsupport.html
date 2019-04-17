@@ -2015,7 +2015,7 @@ function getSupportNet(supportMap) {
     .attr("id", "network-text")
     .data(positionNetwork)
     .attr("x",function(d){return d.x;})
-    .attr("y",function(d){return (d.y+10);})
+    .attr("y",function(d){return (d.y+12);})
     .text(function(d,i) {return d.name;});
 
   //dynamically resize the rectangle based on the length of text
