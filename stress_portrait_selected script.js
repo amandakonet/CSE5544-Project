@@ -171,7 +171,7 @@ var svg = d3.select("body").append("svg")
         {"x":20,"y":16}
     ],
     "color": "#BBE2E5",
-    stressor: "Loneliness",
+    "stressor": "Loneliness",
     "ID": "Connection",
     "stressorID": "Loneliness",
     //label properties 
@@ -433,7 +433,7 @@ var id = window.location.href.split('_');
 console.log(id);
 var len = id.length;
 for(var i =0; i < len-1; i++) {
-    console.log(i);
+    //console.log(i);
     selectedStressorsArr[i] = id.pop().replace(/%20/g, " ");
 }
 console.log(selectedStressorsArr);
@@ -444,32 +444,43 @@ console.log(selectedStressorsArr);
 filteredData = arrayOfPolygons.filter(function (d) {
     return selectedStressorsArr.indexOf(d.stressorID) > -1;
 });
-console.log(filteredData)
+console.log(filteredData);
 
 
 /* 
-    Now, using filtered data, render the polygons!! 
+    Now, render polygons. If selected, color in the polygon. If not, make 
+    it grey and allow it to be clicked on 
 */
   var g = svg.selectAll("g")
-  	.data(filteredData)
+  	.data(arrayOfPolygons)
   	.enter().append("g");
   
   g.append("polygon")
   .attr("class", "polygon")
-  .data(filteredData)
+  .data(arrayOfPolygons)
     .attr("points",function(d) { 
         return d.points.map(function(d) {
             return [x(d.x),y(d.y)].join(",");
         }).join(" ");
     })
-    .attr("fill", function (d) {
-    	return d.color });
-    //return color(d.name) });
-    
+    .attr("fill", function(d) {
+        var color = "lightgrey";
+        if (selectedStressorsArr.indexOf(d.stressorID) > -1) {
+            color = d.color;
+        }
+        return color;
+    })
+    .on("click", function(d){
+        if (selectedStressorsArr.indexOf(d.stressorID) <= -1) {
+            d3.select(this).attr("fill", function (d) {return d.color;});
+            selectedStressorsArr.push(d.stressorID);
+            console.log(selectedStressorsArr); 
+        }
+    });
     
    g.append("text")
     .attr("id", "polygon-text")
-    .data(filteredData)
+    .data(arrayOfPolygons)
     .attr("x", function(d){return d.xlab})
     .attr("y", function(d){return d.ylab})
     .attr("dx", function(d){return d.dx})
@@ -480,7 +491,7 @@ console.log(filteredData)
   //For shapes that need a second line of text
    g.append("text")
     .attr("id", "polygon-text")
-    .data(filteredData)
+    .data(arrayOfPolygons)
     .attr("x", function(d){return d.xlab})
     .attr("y", function(d){return d.ylab})
     .attr("dx", function(d){return d.dx})
@@ -491,7 +502,7 @@ console.log(filteredData)
     //For shapes that need a third line of text
    g.append("text")
     .attr("id", "polygon-text")
-    .data(filteredData)
+    .data(arrayOfPolygons)
     .attr("x", function(d){return d.xlab})
     .attr("y", function(d){return d.ylab})
     .attr("dx", function(d){return d.dx})
@@ -500,11 +511,13 @@ console.log(filteredData)
     .text(function(d) {return d.stressor3}); 
 
 
-    /************************************************
 
-        Setup for passing the url to the next page
 
-    *************************************************/
+/************************************************
+
+    Setup for passing the url to the next page
+
+*************************************************/
 
 
 var button = document.getElementById("button");
