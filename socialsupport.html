@@ -34,11 +34,10 @@ h2 {
   color: #707070;  
 }
 
-#resource-text {
+#network-text {
   font-family: "Montserrat", sans-serif;
-  font-size: 11px;
-  color: #707070; 
-  text-align: center; 
+  font-size: 12px;
+  color: #707070;  
 }
 
 #resource-text {
@@ -2005,9 +2004,9 @@ function getSupportNet(supportMap) {
     //.attr("x", function(i) {
     //  return positionNetwork["x" + i];})
     .attr("y", function(d,i) {return d.y;})
-    .attr("height", "20px")
-    .attr("width", "20px")
-    .style("fill", "#ed553b")//function (d) {return d.color;})
+    .attr("height", 15)
+    .attr("width", 15)
+    .style("fill", "#707070")//function (d) {return d.color;})
     .style("opacity", 0.8)
     .attr("rx", 10)
     .attr("ry", 10);
@@ -2016,7 +2015,7 @@ function getSupportNet(supportMap) {
     .attr("id", "network-text")
     .data(positionNetwork)
     .attr("x",function(d){return d.x;})
-    .attr("y",function(d){return (d.y+15);})
+    .attr("y",function(d){return (d.y+10);})
     .text(function(d,i) {return d.name;});
 
   //dynamically resize the rectangle based on the length of text
@@ -2030,7 +2029,7 @@ function getSupportNet(supportMap) {
   console.log(txtWidth); */
 
   //recenter the text based on new rect length
-  txt.attr("x", function(d) {return (d.x+2.5)});
+  txt.attr("x", function(d) {return (d.x)});
 }
   
 
