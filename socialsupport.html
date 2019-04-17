@@ -529,7 +529,7 @@ var buttonBack = document.getElementById("button-back");
 // Set up the page 
 var margin = {top: 150, right: 20, bottom: 10, left: 650};
 var width =  1475 - margin.left - margin.right;
-var height = 600 - margin.top - margin.bottom;
+var height = 650 - margin.top - margin.bottom;
 // Create SVG
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -543,20 +543,6 @@ var svg = d3.select("body").append("svg")
   
   x.domain([0, 50]);
   y.domain([0, 50]);
-
-//creating the tooltip for the description of each resource
-var tooltip = d3.select("body")
-                  .append("div")
-                  .style('position','absolute')
-                  .style('text-align','center')
-                  .style('width','325px')
-                  .style('margin-top','-35px')
-                  .style('font','200x sans-serif')
-                  .style('padding','2px')
-                  .style('opacity',0)
-                  .style('background', 'lightgray')
-                  .attr('class','tooltip');
-
 //array of circle coordinates, radius, color and name
 var jsonCircles = [
    { "x_axis": -5, 
@@ -700,7 +686,7 @@ buttonBack.addEventListener('click', function() {
         stressorStr += "_" + selectedStressorsArr[i];
     }
     //console.log(stressorStr);
-    location.href=URL_add_parameter("stressportrait_circles.html", array, stressorStr);
+    location.href=URL_add_parameter("imagestress.html", array, stressorStr);
     //console.log(location);
 });
 
@@ -888,7 +874,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Homework & Assignment Management",
   "site" : "https://dennislearningcenter.osu.edu/",
-  "description" : "Helps students examine academic strengths and weaknesses, develop strategies that lead to academic success, stay ahead on work and conquer procrastination, build effective study methods, overcome test anxiety and improve test-taking strategies",
   "x" : -60, 
 "y" : 400,
 "hgt" : 20,
@@ -905,7 +890,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Deadlines",
   "site" : "https://dennislearningcenter.osu.edu/",
-  "description" : "Helps students examine academic strengths and weaknesses, develop strategies that lead to academic success, stay ahead on work and conquer procrastination, build effective study methods, overcome test anxiety and improve test-taking strategies",
   "x" : -60, 
 "y" : 400,
 "hgt" : 20,
@@ -922,7 +906,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Time Management",
   "site" : "https://dennislearningcenter.osu.edu/",
-  "description" : "Helps students examine academic strengths and weaknesses, develop strategies that lead to academic success, stay ahead on work and conquer procrastination, build effective study methods, overcome test anxiety and improve test-taking strategies",
   "x" : -60, 
 "y" : 400,
 "hgt" : 20,
@@ -939,7 +922,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Public Speaking & Presentation",
   "site" : "https://comm.osu.edu/courses/comm/2110",
-  "description" : "A course in critical thinking and public speaking",
   "x" : -197, 
 "y" : 387,
 "hgt" : 20,
@@ -956,7 +938,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Career Anxiety",
   "site" : "https://careers.osu.edu/",
-  "description" : "Offers career development assistance, support and resources",
   "x" : -260, 
 "y" : 198,
 "hgt" : 20,
@@ -973,7 +954,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Career Anxiety",
   "site" : "https://ccs.osu.edu/",
-  "description" : "Services include: individual, group and couple's counseling, psychological testing, workshops, crisis debriefing, community referral and linkage and much more!",
   "x" : -495, 
 "y" : 144,
 "hgt" : 20,
@@ -990,7 +970,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Loneliness",
   "site" : "https://ccs.osu.edu/",
-  "description" : "Services include: individual, group and couple's counseling, psychological testing, workshops, crisis debriefing, community referral and linkage and much more!",
   "x" : -495, 
 "y" : 144,
 "hgt" : 20,
@@ -1007,7 +986,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Homesickness",
   "site" : "https://ccs.osu.edu/",
-  "description" : "Services include: individual, group and couple's counseling, psychological testing, workshops, crisis debriefing, community referral and linkage and much more!",
   "x" : -495, 
 "y" : 144,
 "hgt" : 20,
@@ -1024,7 +1002,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Social Life Improvement",
   "site" : "https://ccs.osu.edu/",
-  "description" : "Services include: individual, group and couple's counseling, psychological testing, workshops, crisis debriefing, community referral and linkage and much more!",
   "x" : -495, 
 "y" : 144,
 "hgt" : 20,
@@ -1041,7 +1018,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Relationship Difficulties",
   "site" : "https://ccs.osu.edu/",
-  "description" : "Services include: individual, group and couple's counseling, psychological testing, workshops, crisis debriefing, community referral and linkage and much more!",
   "x" : -495, 
 "y" : 144,
 "hgt" : 20,
@@ -1058,7 +1034,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Healthy Eating",
   "site" : "https://ccs.osu.edu/",
-  "description" : "Services include: individual, group and couple's counseling, psychological testing, workshops, crisis debriefing, community referral and linkage and much more!",
   "x" : -495, 
 "y" : 144,
 "hgt" : 20,
@@ -1075,7 +1050,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Fear of Failure",
   "site" : "https://ccs.osu.edu/",
-  "description" : "Services include: individual, group and couple's counseling, psychological testing, workshops, crisis debriefing, community referral and linkage and much more!",
   "x" : -495, 
 "y" : 144,
 "hgt" : 20,
@@ -1092,7 +1066,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "School-Social Life Balance",
   "site" : "https://ccs.osu.edu/",
-  "description" : "Services include: individual, group and couple's counseling, psychological testing, workshops, crisis debriefing, community referral and linkage and much more!",
   "x" : -495, 
 "y" : 144,
 "hgt" : 20,
@@ -1109,7 +1082,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Career Anxiety",
   "site" : "https://artsandsciences.osu.edu/news-events/events/interview-buckeye",
-  "description" : "Improve your interviewing confidence and your ability to make a positive impression, and increase your chances of succeeding in a post career fair interview. OSU alumni will provide feedback about your interviewing skills, answer questions you may have about interviewing, and provide tips for resume improvement.",
   "x" : -413, 
 "y" : 398,
 "hgt" : 20,
@@ -1126,7 +1098,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Career Anxiety",
   "site" : "https://handshake.osu.edu/",
-  "description" : "OSU's university-wide position posting system where students have access to search and apply for part-time jobs, internships, co-ops, and full-time career opportunities as well as information about any upcoming career fairs",
    "x" : -310, 
 "y" : 358,
 "hgt" : 20,
@@ -1143,7 +1114,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Career Anxiety",
   "site" : "https://artsandsciences.osu.edu/career-success",
-  "description" : "Explore Handshake, set up an appointment to meet with a career coach, take a look at career resources for your specific college, join a career community and much more!",
   "x" : -220, 
 "y" : 428,
 "hgt" : 20,
@@ -1160,7 +1130,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Personal Finance",
   "site" : "https://swc.osu.edu/services/financial-education/financial-coaching/",
-  "description" : "Schedule a one-on-one appointment with peer financial coach for one hour where you will discuss specific areas of financial support such as financial goal setting, banking basics, budgeting, credit education, debt repayment education, and saving and retirement education.",
    "x" : -494, 
 "y" : 205,
 "hgt" : 20,
@@ -1177,7 +1146,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Personal Finance",
   "site" : "https://buckeyelink.osu.edu/",
-  "description" : "Access your personal financial aid information, your class schedules, grades and more as well as academic records, manage holds to your account, etc.",
   "x" : -287, 
 "y" : 145,
 "hgt" : 20,
@@ -1194,7 +1162,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Personal Finance",
   "site" : "https://activities.osu.edu/programs/dtix",
-  "description" : "Access discounted tickets to concerts, sporting events, performances and more at the DTix desk in the Ohio Union!",
   "x" : -330, 
 "y" : 195,
 "hgt" : 20,
@@ -1211,7 +1178,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Social Life Improvement",
   "site" : "https://activities.osu.edu/programs/dtix",
-  "description" : "Access discounted tickets to concerts, sporting events, performances and more at the DTix desk in the Ohio Union!",
   "x" : -330, 
 "y" : 195,
 "hgt" : 20,
@@ -1228,7 +1194,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Extracurriculars",
   "site" : "https://activities.osu.edu/programs/dtix",
-  "description" : "Access discounted tickets to concerts, sporting events, performances and more at the DTix desk in the Ohio Union!",
   "x" : -330, 
 "y" : 195,
 "hgt" : 20,
@@ -1245,11 +1210,10 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Career Anxiety",
   "site" : "https://oia.osu.edu/",
-  "description" : "Offers resources for international students such as immigration information, life at Ohio State, CPT and OPT workshops, how to gain permanent residency, and much more.",
   "x" : -424, 
 "y" : 95,
 "hgt" : 20,
-"wid" : 160,
+"wid" : 155,
 //label properties
 "xlab" : -387,
 "ylab" : 75,
@@ -1262,7 +1226,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Loneliness",
   "site" : "https://ohiostate.ifiusa.org/",
-  "description" : "Offers airport pickup and temporary housing, weekly Bible discussion groups, and English conversation partners to help improve English-speaking skills.",
   "x" : -500, 
 "y" : 325,
 "hgt" : 20,
@@ -1279,7 +1242,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Homesickness",
   "site" : "https://ohiostate.ifiusa.org/",
-  "description" : "Offers airport pickup and temporary housing, weekly Bible discussion groups, and English conversation partners to help improve English-speaking skills.",
   "x" : -500, 
 "y" : 325,
 "hgt" : 20,
@@ -1296,7 +1258,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Homesickness",
   "site" : "https://ohiostate.ifiusa.org/",
-  "description" : "Offers airport pickup and temporary housing, weekly Bible discussion groups, and English conversation partners to help improve English-speaking skills.",
   "x" : -500, 
 "y" : 325,
 "hgt" : 20,
@@ -1313,7 +1274,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Social Life Improvement",
   "site" : "https://swc.osu.edu/services/wellness-coaching/",
-  "description" : "Wellness coaching in the Student Wellness Center is a free service that provides opportunities for you to gain awareness regarding your capacity to create the life you want to live, both now and in the future.",
   "x" : -460, 
 "y" : 420,
 "hgt" : 20,
@@ -1330,7 +1290,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Relationship Difficulties",
   "site" : "https://swc.osu.edu/services/wellness-coaching/",
-  "description" : "Wellness coaching in the Student Wellness Center is a free service that provides opportunities for you to gain awareness regarding your capacity to create the life you want to live, both now and in the future.",
   "x" : -460, 
 "y" : 420,
 "hgt" : 20,
@@ -1347,7 +1306,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Time Management",
   "site" : "https://swc.osu.edu/services/wellness-coaching/",
-  "description" : "Wellness coaching in the Student Wellness Center is a free service that provides opportunities for you to gain awareness regarding your capacity to create the life you want to live, both now and in the future.",
   "x" : -460, 
 "y" : 420,
 "hgt" : 20,
@@ -1364,7 +1322,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Social Life Improvement",
   "site" : "https://activities.osu.edu/programs/major_campus_events/student_involvement_fairs/",
-  "description" : "Held both during Welcome Week in August and at the beginning of Spring semester in January, the Student Involvement Fair is a great place to find a student organization that meets your needs and interests. There are two annual Student Involvement Fairs.",
    "x" : -486,
  "y" : 270,
 "hgt" : 20,
@@ -1381,7 +1338,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Extracurriculars",
   "site" : "https://activities.osu.edu/programs/major_campus_events/student_involvement_fairs/",
-  "description" : "Held both during Welcome Week in August and at the beginning of Spring semester in January, the Student Involvement Fair is a great place to find a student organization that meets your needs and interests. There are two annual Student Involvement Fairs.",
    "x" : -486,
  "y" : 270,
 "hgt" : 20,
@@ -1398,7 +1354,6 @@ var arrayOfResources = [
   "category" : "connection", 
   "stressor" : "Extracurriculars",
   "site" : "https://recsports.osu.edu/intramural-sports",
-  "description" : "Register a full team with friends or individually for sports such as baseball, badminton, dodgeball, flag football, soccer, sand volleyball, and many many more!",
 "x" : -387, 
 "y" : 295,
 "hgt" : 20,
@@ -1415,7 +1370,6 @@ var arrayOfResources = [
   "category" : "care", 
   "stressor" : "Healthy Eating",
   "site" : "https://dining.osu.edu/",
-  "description" : "Access information about Ohio State's on-campus dining locations, how to build a healthy plate or meet dietary needs, and how your parents can send you a Buckeye Bundle.",
 "x" : -325, 
 "y" : 320,
 "hgt" : 20,
@@ -1432,7 +1386,6 @@ var arrayOfResources = [
   "category" : "care", 
   "stressor" : "Healthy Eating",
   "site" : "https://swc.osu.edu/services/nutrition-education/nutrition-coaching/",
-  "description" : "Nutrition coaching is free to all currently enrolled Ohio State students who want to optimize their health and wellbeing, and work through problems or barriers that block their path to holistic wellness. Nutrition coaching is intended to help students identify any imbalance in their food intake and explore ways to optimize their nutrition needs.",
 "x" : -248, 
 "y" : 104,
 "hgt" : 20,
@@ -1442,31 +1395,13 @@ var arrayOfResources = [
 "ylab" : 85,
 "dx" : -30,
 "dy" : "3em"
-},{
-"name" : "Wilce Student Health Center",
-  "color" : "#0894a1", 
-  "support": "Instrumental", 
-  "category" : "care", 
-  "stressor" : "Healthy Eating",
-  "site" : "https://shs.osu.edu/",
-  "description" : "Services include, but are not limited to, dental services, gynecologic services, nutrition therapy, optometry services, physical therapy, and referrals.",
-"x" : -225, 
-"y" : 244,
-"hgt" : 20,
-"wid" : 160,
-//label properties
-"xlab" : -187,
-"ylab" : 225,
-"dx" : -30,
-"dy" : "3em"
-},  {
+}, {
 "name" : "Wilce Student Health Center",
   "color" : "#0894a1", 
   "support": "Instrumental", 
   "category" : "care", 
   "stressor" : "Illness",
   "site" : "https://shs.osu.edu/",
-  "description" : "Services include, but are not limited to, dental services, gynecologic services, nutrition therapy, optometry services, physical therapy, and referrals.",
 "x" : -225, 
 "y" : 244,
 "hgt" : 20,
@@ -1483,7 +1418,6 @@ var arrayOfResources = [
   "category" : "care", 
   "stressor" : "Difficulty Sleeping",
   "site" : "https://shs.osu.edu/",
-  "description" : "Services include, but are not limited to, dental services, gynecologic services, nutrition therapy, optometry services, physical therapy, and referrals.",
 "x" : -225, 
 "y" : 244,
 "hgt" : 20,
@@ -1500,7 +1434,6 @@ var arrayOfResources = [
   "category" : "care", 
   "stressor" : "Illness",
   "site" : "https://www.cvs.com/minuteclinic/clinic-locator/oh/columbus/2518.html?WT.mc_id=LS_MC_GOOGLE_2518",
-  "description" : "Located just off-campus on the corner of High Street and Lane Avenure, CVS's myClinic offers walk-in examinations for diagnosing and treating illnesses, injuries, and skin conditions as well as providing services such as vaccinations, physicals and screenings for chronic conditions.",
  "x" : -388, 
 "y" : 240,
 "hgt" : 20,
@@ -1517,7 +1450,6 @@ var arrayOfResources = [
   "category" : "care", 
   "stressor" : "Illness",
   "site" : "https://wexnermedical.osu.edu/where-should-i-go-for-care",
-  "description" : "Ohio State's Wexner Medical Center offers primary care, walk-in care, AfterHours care and emergency care at a variety of locations on and off campus.",
 "x" : -480, 
 "y" : 60,
 "hgt" : 20,
@@ -1534,7 +1466,6 @@ var arrayOfResources = [
   "category" : "care", 
   "stressor" : "Illness",
   "site" : "https://wexnermedical.osu.edu/locations-and-parking/afterhours-care-martha-morehouse-outpatient-care",
-  "description" : "Ohio State AfterHours Care at Martha Morehouse Outpatient Care offers evening and weekend hours for treatment of non-life-threatening conditions in patients 14 years old or older. You can walk in or reserve your spot online.",
  "x" : -485, 
 "y" : 31,
 "hgt" : 20,
@@ -1551,7 +1482,6 @@ var arrayOfResources = [
   "category" : "care", 
   "stressor" : "Staying Active",
   "site" : "https://recsports.osu.edu/facilities/recreation-and-physical-activity-center-rpac",
-  "description" : "The Recreation and Physical Activity Center (RPAC) offers cardio and strength equipment, locker and towel services, group equipment checkout, a variety of fitness classes, and an aquatic center, among a variety of other services.",
 "x" : -200, 
 "y" : 69,
 "hgt" : 20,
@@ -1568,7 +1498,6 @@ var arrayOfResources = [
   "category" : "care", 
   "stressor" : "Staying Active",
   "site" : "https://recsports.osu.edu/facilities/jesse-owens-north-jon-recreation-center",
-  "description" : "Jesse Owens North offers cardio and strength equipment, daily locker services, equipment checkout, an indoor basketball court and a matted court.",
 "x" : -198, 
 "y" : 140,
 "hgt" : 20,
@@ -1585,7 +1514,6 @@ var arrayOfResources = [
   "category" : "care", 
   "stressor" : "Staying Active",
   "site" : "https://recsports.osu.edu/facilities/jesse-owens-south-jos-recreation-center",
-  "description" : "Jesse Owens South offers cardio and strength equipment, daily locker services, equipment checkout, two basketball courts, and a table tennis area.",
  "x" : -285, 
 "y" : 269,
 "hgt" : 20,
@@ -1602,7 +1530,6 @@ var arrayOfResources = [
   "category" : "care", 
   "stressor" : "Staying Active",
   "site" : "https://recsports.osu.edu/facilities/north-recreation-center",
-  "description" : "The North Recreation Center offers cardio and strength equipment, daily locker services, equipment checkout, outdoor basketball courts, a variety of fitness classes, and two outdoor sand volleyball courts.",
 "x" : -385, 
 "y" : 170,
 "hgt" : 20,
@@ -1619,7 +1546,6 @@ var arrayOfResources = [
   "category" : "care", 
   "stressor" : "Staying Active",
   "site" : "https://recsports.osu.edu/facilities/adventure-recreation-center-arc",
-  "description" : "The Adventure Recreation Center offers cardio and strength equipment, daily locker services, equipment checkout, indoor basketball/volleyball courts, two indoor turf fields, and indoor rock climbing.",
  "x" : -435, 
 "y" : 120,
 "hgt" : 20,
@@ -1636,7 +1562,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Homework & Assignment Management",
   "site" : "http://younkinsuccess.osu.edu/",
-  "description" : "This South campus center offers a variety of resources including interview training, career counseling, free tutoring services in math, physics, and chemistry, and resume reviews, among other things.",
 "x" : -198, 
 "y" : 170,
 "hgt" : 20,
@@ -1653,7 +1578,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Deadlines",
   "site" : "http://younkinsuccess.osu.edu/",
-  "description" : "This South campus center offers a variety of resources including interview training, career counseling, free tutoring services in math, physics, and chemistry, and resume reviews, among other things.",
 "x" : -198, 
 "y" : 170,
 "hgt" : 20,
@@ -1670,7 +1594,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Time Management",
   "site" : "http://younkinsuccess.osu.edu/",
-  "description" : "This South campus center offers a variety of resources including interview training, career counseling, free tutoring services in math, physics, and chemistry, and resume reviews, among other things.",
 "x" : -198, 
 "y" : 170,
 "hgt" : 20,
@@ -1687,8 +1610,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Homework & Assignment Management",
   "site" : "https://slds.osu.edu/",
-  "description" : "Student Life Disability Services collaborates with and empowers students who have disabilities in order to coordinate support services and programs that enable equal access to an education and university life.",
-
 "x" : -325, 
 "y" : 220,
 "hgt" : 20,
@@ -1705,7 +1626,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Academic Performance",
   "site" : "https://slds.osu.edu/",
-  "description" : "Student Life Disability Services collaborates with and empowers students who have disabilities in order to coordinate support services and programs that enable equal access to an education and university life.",
 "x" : -325, 
 "y" : 220,
 "hgt" : 20,
@@ -1722,7 +1642,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Academic Performance",
   "site" : "https://advising.osu.edu/",
-  "description" : "Often serving as the main point of contact between students and the university, advisors help create academic plans that meet your educational and career goals. They will help guide you through the university while connecting you to appropriate resources that help keep you on track along the way.",
  "x" : -198, 
 "y" : 320,
 "hgt" : 20,
@@ -1739,7 +1658,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Work-Study Balance",
   "site" : "https://advising.osu.edu/",
-  "description" : "Often serving as the main point of contact between students and the university, advisors help create academic plans that meet your educational and career goals. They will help guide you through the university while connecting you to appropriate resources that help keep you on track along the way.",
  "x" : -198, 
 "y" : 320,
 "hgt" : 20,
@@ -1756,7 +1674,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Academic Performance",
   "site" : "https://www.osu.edu/facultystaff/",
-  "description" : "Communicate and connect with your professors through email, in class, or at office hours about academic struggles, class material, or career or research opportunities.",
 "x" : -387, 
 "y" : 370,
 "hgt" : 20,
@@ -1773,7 +1690,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Work-Study Balance",
   "site" : "https://www.osu.edu/facultystaff/",
-  "description" : "Communicate and connect with your professors through email, in class, or at office hours about academic struggles, class material, or career or research opportunities.",
 "x" : -387, 
 "y" : 370,
 "hgt" : 20,
@@ -1790,7 +1706,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Academic Performance",
   "site" : "https://mslc.osu.edu/",
-  "description" : "The Mathematics and Statistics Learning Center provides free support to students of many undergraduate Mathematics and Statistics courses. Trained tutors are available to help students with difficulties they are experiencing in class or with homework. In addition, online resources, practice exams and workshops are provided to help students achieve their potential.",
 "x" : -198, 
 "y" : 350,
 "hgt" : 20,
@@ -1807,7 +1722,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Academic Performance",
   "site" : "https://cstw.osu.edu/writing-center",
-  "description" : "The Writing Center offers free help with writing at any stage of the writing process for any member of the university community. During our sessions, consultants can work with you on anything from research papers to lab reports, from dissertations to résumés, from proposals to application materials. We also maintain a Writing Resources page with writing handouts and links to online resources.",
 "x" : -185, 
 "y" : 270,
 "hgt" : 20,
@@ -1824,7 +1738,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Work-Study Balance",
   "site" : "",
-  "description" : "Communicate with your boss about any difficulties you may be expreriencing regarding balancing school and work obligations.",
 "x" : -295, 
 "y" : 60,
 "hgt" : 20,
@@ -1841,7 +1754,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Work-Study Balance",
   "site" : "",
-  "description" : "Communicate with your boss about any difficulties you may be expreriencing regarding balancing school and work obligations.",
 "x" : -295, 
 "y" : 60,
 "hgt" : 20,
@@ -1858,7 +1770,6 @@ var arrayOfResources = [
   "category" : "career", 
   "stressor" : "Career Anxiety",
   "site" : "https://ccss.osu.edu/",
-  "description" : "The Career Counseling and Support Services web site lists relevant, on and off campus, career resources to assist all OSU students in their career decision making processes. These career links represent useful suggestions that you may want to consult  depending on your career planning needs and career goals.",
 "x" : -284, 
 "y" : 8,
 "hgt" : 20,
@@ -1875,7 +1786,6 @@ var arrayOfResources = [
   "category" : "commitments", 
   "stressor" : "Academic Performance",
   "site" : "http://younkinsuccess.osu.edu/tutoring/",
-  "description" : "Free peer tutoring provided by certified peer tutors is held in the Younkin Success Center Autumn and Spring semesters. Subjects incude math, physics, and chemistry.",
 "x" : -243, 
 "y" : 294,
 "hgt" : 20,
@@ -1895,7 +1805,7 @@ BASED ON THE SELECTED STRESSORS
 
 **************************************************/
 
-//Filter the data by only those stressors that were selected by the user
+//Filter the data by only those stressors that were selected by the use
 filtered = arrayOfResources.filter(function (d) {
     return selectedStressorsArr.indexOf(d.stressor) > -1;});
 //console.log(filtered);
@@ -1916,16 +1826,7 @@ g.append("a")
     .style("fill", function (d) {return d.color;})
     .style("opacity", 0.8)
     .attr("rx", 10)
-    .attr("ry", 10)
-    .on("mouseover", function(d){ tooltip.transition()    
-        .duration(200)
-        .style('opacity', 10)
-        tooltip.html( d.description)
-        .style('left',(d3.event.pageX + 5) + 'px')   //-15 :- tooltip location relative to the mouse
-        .style('top', (d3.event.pageY + 5) + 'px')
-                        })
-    .on('mouseout', function(d) { tooltip.transition()
-        .style('opacity', 0)});
+    .attr("ry", 10);
 
 g.append("text")
     .attr("id", "resource-text")
