@@ -41,4 +41,6 @@ Amanda Konet(.5) and Meghana Yechuri(.1). [Github Page URL](https://amandakonet.
   - back_button.png & forward_button.png: Back and forwards buttons used on each of the screens
   
   - [Self Help Images](/Self_Help_Images): Pictographs provided to us for positive psychology strategies
+  
+  -[Old-Stress-Portrait](/old-stress-portrait): Previous iterations of the project code
 
