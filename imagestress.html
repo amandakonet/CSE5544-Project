@@ -125,7 +125,7 @@
                   .style('opacity',0)
                   .attr('class','tooltip');
 
-    function outputImage(url, position,label) {
+    function outputImage(url, position,label,description) {
       var imageGroup = svg.append("g")
         //.datum({position: position})
         .attr("transform", d => "translate(" + position + ")");
@@ -141,7 +141,14 @@
         .attr("xlink:href", url)
         .attr("height", image.size)
         .attr("width", image.size)
-        .attr("clip-path", "url(#clip)");
+        .attr("clip-path", "url(#clip)")
+        .on("mouseover", function(d){
+            tooltip.transition()
+            .style('opacity', 10)
+            tooltip.html( description)
+            .style('left',(d3.event.pageX - 15) + 'px')   //-15 :- tooltip location relative to the mouse
+            .style('top', (d3.event.pageY - 15) + 'px')
+        });
 
       imageGroup.append("rect");
 
@@ -154,14 +161,8 @@
           //.attr("fill", "#FFF")
           .style("fill","#707070")
           .style("font-size", "12px")
-          .attr("text-anchor", "middle");
-//         .on("mouseover", function(d){
-//             tooltip.transition()
-//             .style('opacity', 10)
-//             tooltip.html( label)
-//             .style('left',(d3.event.pageX - 15) + 'px')   //-15 :- tooltip location relative to the mouse
-//             .style('top', (d3.event.pageY - 15) + 'px')
-//         });
+          .attr("text-anchor", "middle")
+        
       // var circleOutline = imageGroup.append("circle")
       //   .attr("class", "circle-outline")
       //   .attr("cx", image.size / 2)
@@ -169,7 +170,6 @@
       //   .attr("r",  40)   ; 
       
     }
-
   
   // X and Y range + domain 
   var x = d3.scaleLinear().range([0, 400]);
@@ -728,17 +728,25 @@ var svg = d3.select("body").append("svg")
         doctorUrl6 = "Self_Help_Images/PhysicalActivity.png",
         doctorUrl7 = "Self_Help_Images/ActsofKindness.png",
         doctorUrl8 = "Self_Help_Images/ExpressingGratitude.png";
-
+ // ----------------- Self-Help Descriptions -------------------
+  var descrip1 = "Make to-do lists",
+      descrip2 = "Journal",
+      descrip3 = "Practice Mindfullness",
+      descrip4 = "Deep Breathing",
+      descrip5 = "Spend time alone",
+      descrip6 = "Take a 10 minute walk",
+      descrip7 = "Buy someone coffee",
+      descrip8 = "Write down 3 good things";    
 
 // -------------- Code Called to Output the Images -------------------    
-    outputImage(doctorUrl1, [550, 200], "Commiting to Goals");
-    outputImage(doctorUrl2, [462.13203435596427, 412.13203435596427], "Strategies for Coping");
-    outputImage(doctorUrl3, [250.00000000000003, 500], "Avoid Social Comparison");
-    outputImage(doctorUrl4, [37.86796564403576, 412.13203435596427], "Meditate");
-    outputImage(doctorUrl5, [-50, 200.00000000000003], "Self Care");
-    outputImage(doctorUrl6, [37.867965644035706, -12.132034355964237], "Physical Activity");
-    outputImage(doctorUrl7, [249.99999999999994, -100], "Acts of Kindness");
-    outputImage(doctorUrl8, [462.13203435596427, -12.132034355964294], "Expressing Gratitude");
+    outputImage(doctorUrl1, [550, 200], "Commiting to Goals",descrip1);
+    outputImage(doctorUrl2, [462.13203435596427, 412.13203435596427], "Strategies for Coping",descrip2);
+    outputImage(doctorUrl3, [250.00000000000003, 500], "Avoid Social Comparison",descrip3);
+    outputImage(doctorUrl4, [37.86796564403576, 412.13203435596427], "Meditate",descrip4);
+    outputImage(doctorUrl5, [-50, 200.00000000000003], "Self Care",descrip5);
+    outputImage(doctorUrl6, [37.867965644035706, -12.132034355964237], "Physical Activity",descrip6);
+    outputImage(doctorUrl7, [249.99999999999994, -100], "Acts of Kindness",descrip7);
+    outputImage(doctorUrl8, [462.13203435596427, -12.132034355964294], "Expressing Gratitude",descrip8);
 
 
 // --------------- Code to add labels to circles -----------------------
