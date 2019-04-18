@@ -42,5 +42,5 @@ Amanda Konet(.5) and Meghana Yechuri(.1). [Github Page URL](https://amandakonet.
   
   - [Self Help Images](/Self_Help_Images): Pictographs provided to us for positive psychology strategies
   
-  -[Old-Stress-Portrait](/old-stress-portrait): Previous iterations of the project code
+  - [Old-Stress-Portrait](/old-stress-portrait): Previous iterations of the project code
 
