@@ -740,11 +740,11 @@ var svg = d3.select("body").append("svg")
 
 // --------------- Code to add labels to circles -----------------------
 
-/*var g2 = svg.selectAll("g2")
+var g2 = svg.selectAll("g2")
     .data(self_help_strategies)
-    .enter().append("g2");*/
+    .enter().append("g2");
 
-g.append("text")
+g2.append("text")
   .attr("id", "psych-text")
   .data(self_help_strategies)
   .attr("x", function(d){return d.x;})
