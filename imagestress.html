@@ -142,16 +142,19 @@
         .attr("height", image.size)
         .attr("width", image.size)
         .attr("clip-path", "url(#clip)");
-imageGroup.append("rect");
+
+      imageGroup.append("rect");
+
         imageGroup.append("text")
-                                  .attr("x",35)
-                                  .attr("y",10)
-                                  .attr("width",20)
-                                  .attr("height",20)
-                                  .text(label)
-                                  //.attr("fill", "#FFF")
-                                  .style("fill","black")
-    .attr("text-anchor", "middle");
+          .attr("x",80)
+          .attr("y",166)
+          .attr("width",20)
+          .attr("height",20)
+          .text(label)
+          //.attr("fill", "#FFF")
+          .style("fill","#707070")
+          .style("font-size", "12px")
+          .attr("text-anchor", "middle");
 //         .on("mouseover", function(d){
 //             tooltip.transition()
 //             .style('opacity', 10)
@@ -728,23 +731,21 @@ var svg = d3.select("body").append("svg")
 
 
 // -------------- Code Called to Output the Images -------------------    
-    outputImage(doctorUrl1, [550, 200]);
-    outputImage(doctorUrl2, [462.13203435596427, 412.13203435596427]);
-    outputImage(doctorUrl3, [250.00000000000003, 500]);
-    outputImage(doctorUrl4, [37.86796564403576, 412.13203435596427]);
-    outputImage(doctorUrl5, [-50, 200.00000000000003]);
-    outputImage(doctorUrl6, [37.867965644035706, -12.132034355964237]);
-    outputImage(doctorUrl7, [249.99999999999994, -100]);
-    outputImage(doctorUrl8, [462.13203435596427, -12.132034355964294]);
+    outputImage(doctorUrl1, [550, 200], "Commiting to Goals");
+    outputImage(doctorUrl2, [462.13203435596427, 412.13203435596427], "Strategies for Coping");
+    outputImage(doctorUrl3, [250.00000000000003, 500], "Avoid Social Comparison");
+    outputImage(doctorUrl4, [37.86796564403576, 412.13203435596427], "Meditate");
+    outputImage(doctorUrl5, [-50, 200.00000000000003], "Self Care");
+    outputImage(doctorUrl6, [37.867965644035706, -12.132034355964237], "Physical Activity");
+    outputImage(doctorUrl7, [249.99999999999994, -100], "Acts of Kindness");
+    outputImage(doctorUrl8, [462.13203435596427, -12.132034355964294], "Expressing Gratitude");
 
 
 // --------------- Code to add labels to circles -----------------------
 
-var g2 = svg.selectAll("g2")
-    .data(self_help_strategies)
-    .enter().append("g2");
+var g2 = svg.append("g2");
 
-svg.append("text")
+g2.append("text")
   .attr("id", "psych-text")
   .data(self_help_strategies)
   .attr("x", function(d){return d.x;})
